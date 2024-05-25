@@ -1,13 +1,66 @@
 - Player
 	- [ ] Player character who can move around with keyboard controls
+		- [ ] Art - character body
 	- [ ] Player character who can shoot forward in a straight line
+		- [ ] SFX
+		- [ ] Art - projectiles
 	- [ ] Player character dies on being touched
+		- [ ] SFX
+		- [ ] Art - explosion
 	- [ ] Player character dies on being shot
-	- [ ] More detailed player sprite
 	- [ ] Rotation animations while moving left and right
 	
 - Enemy
-	- [ ] Enemy character that moves straight forward
-	- [ ] Enemy character that dies on getting shot
-	- [ ] Enemy character that shoots straight forward
-	- [ ] Enemy character that moves back and forth
+	- [ ] Enemy type that moves straight forward
+		- [ ] Art - body
+	- [ ] Enemy type that dies on getting shot
+		- [ ] SFX
+		- [ ] Art - explosion
+	- [ ] Enemy type that shoots straight forward
+		- [ ] SFX
+		- [ ] Art - projectiles
+	- [ ] Enemy type that shoots towards player
+		- [ ] SFX
+		- [ ] Art - projectiles
+	- [ ] Enemy type that moves back and forth
+		- [ ] SFX
+		- [ ] Art - body
+		
+- Boss
+	- [ ] Boss that takes a certain number of hits before dying
+		- [ ] Art
+	- [ ] Shoots straights forward
+		- [ ] SFX
+		- [ ] Art
+
+- Level 1
+	- [ ] Scrolling background art for the main game
+	- [ ] Score that increments on killing an enemy
+	- [ ] Background music that begins when starting the level
+	- [ ] Enemy Spawner
+		- [ ] Defines a way to spawn a certain type of enemy at a set time at a location
+	- [ ] Game Over screen after player dies
+	- [ ] Win screen after player wins
+	
+- Menus
+	- [ ] Main menu with a button that enters the main game
+		- [ ] Button SFX
+	- [ ] Options page 
+		- [ ] Volume sliders
+		- [ ] SFX
+	- [ ] High Scores page
+	- [ ] Background music that begins when loading the main menu
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
