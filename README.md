@@ -1,2 +1,13 @@
-- [ ] Player character who can move around with keyboard controls
-- [ ] Player character who can shoot forward in a straight line
+- Player
+	- [ ] Player character who can move around with keyboard controls
+	- [ ] Player character who can shoot forward in a straight line
+	- [ ] Player character dies on being touched
+	- [ ] Player character dies on being shot
+	- [ ] More detailed player sprite
+	- [ ] Rotation animations while moving left and right
+	
+- Enemy
+	- [ ] Enemy character that moves straight forward
+	- [ ] Enemy character that dies on getting shot
+	- [ ] Enemy character that shoots straight forward
+	- [ ] Enemy character that moves back and forth
