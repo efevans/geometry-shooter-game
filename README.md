@@ -1,0 +1,2 @@
+- [] Player character who can move around with keyboard controls
+- [] Player character who can shoot forward in a straight line
