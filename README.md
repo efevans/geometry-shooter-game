@@ -28,10 +28,16 @@
 		
 - Boss
 	- [ ] Boss that takes a certain number of hits before dying
+		- [ ] SFX - getting hit
 		- [ ] Art
 	- [ ] Shoots straights forward
 		- [ ] SFX
 		- [ ] Art
+	- [ ] Shoots towards the player
+		- [ ] SFX
+		- [ ] Art
+	- [ ] Moves back and forth
+	- [ ] HP bar to show remaining HP
 
 - Level 1
 	- [ ] Scrolling background art for the main game
@@ -41,7 +47,9 @@
 		- [ ] Defines a way to spawn a certain type of enemy at a set time at a location
 		- [ ] Spawns a boss at the end of the level
 	- [ ] Game Over screen after player dies
+		- [ ] "You Lost" SFX
 	- [ ] Win screen after player wins
+		- [ ] "You Won" SFX
 	- [ ] BGM changes when boss spawns
 	
 - Menus
