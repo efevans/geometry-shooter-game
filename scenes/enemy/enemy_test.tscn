@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdr2nbadf3iaw"]
+[gd_scene load_steps=3 format=3 uid="uid://cdr2nbadf3iaw"]
 
 [ext_resource type="PackedScene" uid="uid://l38eatwjev7n" path="res://scenes/enemy/enemy.tscn" id="1_d8d8p"]
+[ext_resource type="PackedScene" uid="uid://svu8yrkk206g" path="res://scenes/bullet/bullet.tscn" id="2_il28w"]
 
 [node name="EnemyTest" type="Node"]
 
 [node name="Enemy" parent="." instance=ExtResource("1_d8d8p")]
+
+[node name="Bullet" parent="." instance=ExtResource("2_il28w")]
+position = Vector2(178, 6)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsucvjrkive7c"]
+
+[ext_resource type="Script" path="res://scenes/components/move_forward_component/move_forward_component.gd" id="1_y6rhv"]
+
+[node name="MoveForwardComponent" type="Node"]
+script = ExtResource("1_y6rhv")
