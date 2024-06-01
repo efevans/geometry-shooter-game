@@ -14,7 +14,7 @@ func _ready() -> void:
 	shoot_timer.timeout.connect(on_shoot_timeout)
 
 
-func on_shoot_timeout():
-	var bullet_instance = bullet_scene.instantiate() as Node2D
+func on_shoot_timeout() -> void:
+	var bullet_instance := bullet_scene.instantiate() as Node2D
 	get_tree().root.add_child(bullet_instance)
 	bullet_instance.global_position = parent_firer.global_position + Vector2.DOWN * parent_distance_buffer

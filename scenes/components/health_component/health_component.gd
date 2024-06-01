@@ -1,7 +1,7 @@
 extends Node
 
 @export var max_health: int = 1
-var current_health = 0
+var current_health: int = 0
 
 
 func _ready() -> void:
