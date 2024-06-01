@@ -9,7 +9,7 @@
 		- [ ] Art - explosion
 	- [ ] Player character dies on being shot
 	- [ ] Rotation animations while moving left and right
-	
+
 - Enemy
 	- [x] Enemy type that moves straight forward
 		- [x] Art - body
@@ -25,7 +25,7 @@
 	- [ ] Enemy type that moves back and forth
 		- [ ] SFX
 		- [ ] Art - body
-		
+
 - Boss
 	- [ ] Boss that takes a certain number of hits before dying
 		- [ ] SFX - getting hit
@@ -51,26 +51,29 @@
 	- [ ] Win screen after player wins
 		- [ ] "You Won" SFX
 	- [ ] BGM changes when boss spawns
-	
+
 - Menus
-	- [ ] Main menu with a button that enters the main game
+	- [x] Main menu with a button that enters the main game
 		- [ ] Button SFX
-	- [ ] Options page 
+	- [ ] Options page
 		- [ ] Volume sliders
 		- [ ] SFX
 	- [ ] High Scores page
 	- [ ] Background music that begins when loading the main menu
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	- [ ] Themeing
+		- [ ] Font
+		- [ ] Button styling
+
+
+
+
+
+
+
+
+
+
+
+
+
+

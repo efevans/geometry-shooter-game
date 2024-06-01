@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfe0po53yn2p6"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_xhwht"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_xhwht")
+
+[node name="Title" type="Control" parent="."]
+custom_minimum_size = Vector2(450, 800)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 450.0
+offset_bottom = 800.0
+
+[node name="Label" type="Label" parent="Title"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Geometry
+Shooter
+Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="Control" parent="."]
+custom_minimum_size = Vector2(450, 800)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 300
+
+[node name="CenterContainer" type="CenterContainer" parent="Buttons/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons/MarginContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PlayButton" type="Button" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="HighScoreButton" type="Button" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "High Scores"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SettingsButton" type="Button" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Buttons/MarginContainer/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/CenterContainer/VBoxContainer/HighScoreButton" to="." method="_on_high_score_button_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
