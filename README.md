@@ -42,7 +42,7 @@
 - Level 1
 	- [ ] Scrolling background art for the main game
 	- [ ] Score that increments on killing an enemy
-	- [ ] Background music that begins when starting the level
+	- [x] Background music that begins when starting the level
 	- [ ] Enemy Spawner
 		- [ ] Defines a way to spawn a certain type of enemy at a set time at a location
 		- [ ] Spawns a boss at the end of the level
