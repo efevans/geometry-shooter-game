@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdr2nbadf3iaw"]
+[gd_scene load_steps=8 format=3 uid="uid://cdr2nbadf3iaw"]
 
 [ext_resource type="PackedScene" uid="uid://l38eatwjev7n" path="res://scenes/enemy/enemy.tscn" id="1_d8d8p"]
 [ext_resource type="PackedScene" uid="uid://cgi03k6n0yj2g" path="res://scenes/enemy/move_forward_enemy/move_forward_enemy.tscn" id="2_0e4jo"]
 [ext_resource type="PackedScene" uid="uid://b2vmd6cg3aakl" path="res://scenes/enemy/shoot_bullet_enemy/shoot_bullet_enemy.tscn" id="3_1kylx"]
+[ext_resource type="PackedScene" uid="uid://dlur44elqdbkg" path="res://scenes/enemy/die_on_hit_enemy/die_on_hit_enemy.tscn" id="4_g4w8w"]
+[ext_resource type="PackedScene" uid="uid://bsucvjrkive7c" path="res://scenes/components/move_forward_component/move_forward_component.tscn" id="5_ysrnn"]
+[ext_resource type="Texture2D" uid="uid://cqqx0fnucs4sd" path="res://scenes/enemy/enemy.png" id="6_1lm7k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_die47"]
 
 [node name="EnemyTest" type="Node"]
 
@@ -10,7 +15,23 @@
 position = Vector2(86, 26)
 
 [node name="MoveForwardEnemy" parent="." instance=ExtResource("2_0e4jo")]
-position = Vector2(205, 28)
+position = Vector2(163, 28)
 
 [node name="ShootBulletEnemy" parent="." instance=ExtResource("3_1kylx")]
-position = Vector2(323, 27)
+position = Vector2(245, 27)
+
+[node name="DieOnHitEnemy" parent="." node_paths=PackedStringArray("movement_component") instance=ExtResource("4_g4w8w")]
+position = Vector2(346, 29)
+movement_component = NodePath("MoveForwardComponent")
+
+[node name="MoveForwardComponent" parent="DieOnHitEnemy" instance=ExtResource("5_ysrnn")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(346, 146)
+texture = ExtResource("6_1lm7k")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("CircleShape2D_die47")
