@@ -16,7 +16,7 @@
 	- [ ] Enemy type that dies on getting shot
 		- [ ] SFX
 		- [ ] Art - explosion
-	- [ ] Enemy type that shoots straight forward
+	- [x] Enemy type that shoots straight forward
 		- [ ] SFX
 		- [ ] Art - projectiles
 	- [ ] Enemy type that shoots towards player
