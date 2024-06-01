@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfsmh0c185db5"]
+
+[ext_resource type="Texture2D" uid="uid://dlvw5580u4m8l" path="res://scenes/player/player.png" id="1_43pf7"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_x4sp7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmw1y"]
+size = Vector2(15, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2kcu"]
+size = Vector2(26, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjcpm"]
+size = Vector2(6, 7)
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_x4sp7")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("1_43pf7")
+
+[node name="BodyCollider1" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_hmw1y")
+
+[node name="BodyCollider2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_b2kcu")
+
+[node name="BodyCollider3" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_pjcpm")

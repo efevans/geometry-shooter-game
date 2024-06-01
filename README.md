@@ -1,5 +1,5 @@
 - Player
-	- [ ] Player character who can move around with keyboard controls
+	- [x] Player character who can move around with keyboard controls
 		- [ ] Art - character body
 	- [ ] Player character who can shoot forward in a straight line
 		- [ ] SFX
@@ -8,7 +8,7 @@
 		- [ ] SFX
 		- [ ] Art - explosion
 	- [ ] Player character dies on being shot
-	- [ ] Rotation animations while moving left and right
+	- [ ] Rotation animations while moving left and rightggg
 
 - Enemy
 	- [x] Enemy type that moves straight forward

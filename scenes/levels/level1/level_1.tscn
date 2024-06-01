@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://du1h3ugy0xy51"]
+[gd_scene load_steps=2 format=3 uid="uid://du1h3ugy0xy51"]
+
+[ext_resource type="PackedScene" uid="uid://cfsmh0c185db5" path="res://scenes/player/player.tscn" id="1_wrtrg"]
 
 [node name="Level1" type="Node2D"]
 
-[node name="TEMP_LeveLindicator" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "YOU ARE ON LEVEL 1"
+[node name="Player" parent="." instance=ExtResource("1_wrtrg")]
+position = Vector2(209, 750)
