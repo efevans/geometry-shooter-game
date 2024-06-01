@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgi03k6n0yj2g"]
+
+[ext_resource type="Texture2D" uid="uid://cqqx0fnucs4sd" path="res://scenes/enemy/enemy.png" id="1_8l0kg"]
+[ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_jwj5e"]
+[ext_resource type="PackedScene" uid="uid://bsucvjrkive7c" path="res://scenes/components/move_forward_component/move_forward_component.tscn" id="2_ley3g"]
+
+[node name="MoveForwardEnemy" type="Node2D" node_paths=PackedStringArray("movement_component")]
+script = ExtResource("1_jwj5e")
+movement_component = NodePath("MoveForwardComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8l0kg")
+
+[node name="MoveForwardComponent" parent="." instance=ExtResource("2_ley3g")]

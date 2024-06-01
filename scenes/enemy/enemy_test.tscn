@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdr2nbadf3iaw"]
+[gd_scene load_steps=4 format=3 uid="uid://cdr2nbadf3iaw"]
 
 [ext_resource type="PackedScene" uid="uid://l38eatwjev7n" path="res://scenes/enemy/enemy.tscn" id="1_d8d8p"]
-[ext_resource type="PackedScene" uid="uid://svu8yrkk206g" path="res://scenes/bullet/bullet.tscn" id="2_il28w"]
+[ext_resource type="PackedScene" uid="uid://cgi03k6n0yj2g" path="res://scenes/enemy/move_forward_enemy/move_forward_enemy.tscn" id="2_0e4jo"]
+[ext_resource type="PackedScene" uid="uid://b2vmd6cg3aakl" path="res://scenes/enemy/shoot_bullet_enemy/shoot_bullet_enemy.tscn" id="3_1kylx"]
 
 [node name="EnemyTest" type="Node"]
 
 [node name="Enemy" parent="." instance=ExtResource("1_d8d8p")]
+position = Vector2(86, 26)
 
-[node name="Bullet" parent="." instance=ExtResource("2_il28w")]
-position = Vector2(178, 6)
+[node name="MoveForwardEnemy" parent="." instance=ExtResource("2_0e4jo")]
+position = Vector2(205, 28)
+
+[node name="ShootBulletEnemy" parent="." instance=ExtResource("3_1kylx")]
+position = Vector2(323, 27)

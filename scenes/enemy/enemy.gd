@@ -5,4 +5,6 @@ const SPEED: float = 1.0
 
 
 func _physics_process(_delta: float) -> void:
+	if !movement_component:
+		return
 	movement_component.move(self, SPEED)

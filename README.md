@@ -18,10 +18,10 @@
 		- [ ] Art - explosion
 	- [x] Enemy type that shoots straight forward
 		- [ ] SFX
-		- [ ] Art - projectiles
-	- [ ] Enemy type that shoots towards player
+		- [x] Art - projectiles
+	- [x] Enemy type that shoots towards player
 		- [ ] SFX
-		- [ ] Art - projectiles
+		- [x] Art - projectiles
 	- [ ] Enemy type that moves back and forth
 		- [ ] SFX
 		- [ ] Art - body
