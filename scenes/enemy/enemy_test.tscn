@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdr2nbadf3iaw"]
+[gd_scene load_steps=9 format=3 uid="uid://cdr2nbadf3iaw"]
 
 [ext_resource type="PackedScene" uid="uid://l38eatwjev7n" path="res://scenes/enemy/enemy.tscn" id="1_d8d8p"]
 [ext_resource type="PackedScene" uid="uid://cgi03k6n0yj2g" path="res://scenes/enemy/move_forward_enemy/move_forward_enemy.tscn" id="2_0e4jo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dlur44elqdbkg" path="res://scenes/enemy/die_on_hit_enemy/die_on_hit_enemy.tscn" id="4_g4w8w"]
 [ext_resource type="PackedScene" uid="uid://bsucvjrkive7c" path="res://scenes/components/move_forward_component/move_forward_component.tscn" id="5_ysrnn"]
 [ext_resource type="Texture2D" uid="uid://cqqx0fnucs4sd" path="res://scenes/enemy/enemy.png" id="6_1lm7k"]
+[ext_resource type="PackedScene" uid="uid://de7fdrcgbcp25" path="res://scenes/enemy/move_sideways_enemy/move_sideways_enemy.tscn" id="7_gxau2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_die47"]
 
@@ -35,3 +36,6 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
 shape = SubResource("CircleShape2D_die47")
+
+[node name="MoveSidewaysEnemy" parent="." instance=ExtResource("7_gxau2")]
+position = Vector2(132, 159)

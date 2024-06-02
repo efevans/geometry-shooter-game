@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://de7fdrcgbcp25"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_kbm63"]
+[ext_resource type="Texture2D" uid="uid://cqqx0fnucs4sd" path="res://scenes/enemy/enemy.png" id="2_44hyk"]
+[ext_resource type="PackedScene" uid="uid://cure2b7qudaha" path="res://scenes/components/move_sideways_component/move_sideways_component.tscn" id="3_gnfbv"]
+
+[node name="Enemy" type="Node2D" node_paths=PackedStringArray("movement_component")]
+script = ExtResource("1_kbm63")
+movement_component = NodePath("MoveSidewaysComponent")
+
+[node name="MoveSidewaysComponent" parent="." instance=ExtResource("3_gnfbv")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_44hyk")
