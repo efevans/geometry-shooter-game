@@ -13,7 +13,7 @@
 - Enemy
 	- [x] Enemy type that moves straight forward
 		- [x] Art - body
-	- [ ] Enemy type that dies on getting shot
+	- [x] Enemy type that dies on getting shot
 		- [ ] SFX
 		- [ ] Art - explosion
 	- [x] Enemy type that shoots straight forward
