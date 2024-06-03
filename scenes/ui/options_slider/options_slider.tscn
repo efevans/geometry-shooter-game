@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://d26x7beb3l6aq"]
+
+[ext_resource type="Script" path="res://scenes/ui/options_slider/options_slider.gd" id="1_kjdbv"]
+
+[sub_resource type="Theme" id="Theme_xi1pp"]
+LineEdit/constants/minimum_character_width = 2
+
+[node name="OptionsSlider" type="HBoxContainer"]
+script = ExtResource("1_kjdbv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "LABEL"
+
+[node name="Spacer" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+value = 100.0
+rounded = true
+
+[node name="SpinBox" type="SpinBox" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = SubResource("Theme_xi1pp")
+value = 100.0
+rounded = true
+alignment = 2
+update_on_text_changed = true
+custom_arrow_step = 5.0
+select_all_on_focus = true
+
+[connection signal="drag_ended" from="HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="SpinBox" to="." method="_on_spin_box_value_changed"]

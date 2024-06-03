@@ -11,7 +11,7 @@ func _ready() -> void:
 func hurt(damage: int) -> void:
 	if !owner:
 		return
-		
+
 	current_health -= damage
 	if current_health <= 0:
 		owner.queue_free()
