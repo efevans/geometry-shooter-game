@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg2tfdjbl1vd3"]
+
+[ext_resource type="PackedScene" uid="uid://d26x7beb3l6aq" path="res://scenes/ui/options_slider/options_slider.tscn" id="1_dlgjw"]
+[ext_resource type="Script" path="res://scenes/settings/settings.gd" id="1_g5kr7"]
+
+[node name="Settings" type="Node2D"]
+script = ExtResource("1_g5kr7")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(450, 800)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Volume"
+
+[node name="MainVolume" parent="Control/CenterContainer/VBoxContainer" instance=ExtResource("1_dlgjw")]
+unique_name_in_owner = true
+layout_mode = 2
+label_name = "Main"
+
+[node name="SfxVolume" parent="Control/CenterContainer/VBoxContainer" instance=ExtResource("1_dlgjw")]
+unique_name_in_owner = true
+layout_mode = 2
+label_name = "SFX"
+
+[node name="MusicVolume" parent="Control/CenterContainer/VBoxContainer" instance=ExtResource("1_dlgjw")]
+unique_name_in_owner = true
+layout_mode = 2
+label_name = "Music"
+
+[connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/MainVolume" to="." method="_on_main_volume_value_change"]
+[connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/MainVolume" to="." method="flush_settings_to_disk"]
+[connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/SfxVolume" to="." method="_on_sfx_volume_value_change"]
+[connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/SfxVolume" to="." method="flush_settings_to_disk"]
+[connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_change"]
+[connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/MusicVolume" to="." method="flush_settings_to_disk"]
