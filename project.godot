@@ -35,6 +35,13 @@ window/stretch/scale_mode="integer"
 
 movie_writer/movie_file="res://"
 
+[file_customization]
+
+folder_colors={
+"res://scenes/": "blue",
+"res://scripts/": "pink"
+}
+
 [gui]
 
 theme/custom="res://default_theme.tres"
