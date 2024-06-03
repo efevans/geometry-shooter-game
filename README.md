@@ -40,7 +40,7 @@
 	- [ ] HP bar to show remaining HP
 
 - Level 1
-	- [ ] Scrolling background art for the main game
+	- [x] Scrolling background art for the main game
 	- [ ] Score that increments on killing an enemy
 	- [x] Background music that begins when starting the level
 	- [ ] Enemy Spawner

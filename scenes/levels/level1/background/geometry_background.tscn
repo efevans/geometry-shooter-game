@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsyhvv62vh4ej"]
+
+[ext_resource type="PackedScene" uid="uid://eul1p3dr5mym" path="res://scenes/levels/level1/background/geometry-background.glb" id="1_k7o14"]
+
+[node name="geometry-background" instance=ExtResource("1_k7o14")]
