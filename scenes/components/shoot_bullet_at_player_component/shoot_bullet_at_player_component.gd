@@ -7,11 +7,13 @@ extends Node
 @export_group("Parent Properties")
 @export var parent_firer: Node2D
 @export var parent_distance_buffer: float = 0.0
+@export var stream: AudioStream
 
 
 func _ready() -> void:
 	shoot_timer.start(shoot_timeout)
 	shoot_timer.timeout.connect(on_shoot_timeout)
+	$ShootBulletPlayer.stream = stream
 
 
 func on_shoot_timeout() -> void:
@@ -24,3 +26,5 @@ func on_shoot_timeout() -> void:
 		return
 	var normalized_direction_to_player := (player.global_position - bullet_instance.global_position).normalized()
 	bullet_instance.set_direction(normalized_direction_to_player)
+	
+	$ShootBulletPlayer.play()

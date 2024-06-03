@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://vx85fxunnudo"]
+[gd_scene load_steps=4 format=3 uid="uid://vx85fxunnudo"]
 
 [ext_resource type="Texture2D" uid="uid://cqqx0fnucs4sd" path="res://scenes/enemy/enemy.png" id="1_efd30"]
 [ext_resource type="PackedScene" uid="uid://oqmy2dbyi8vq" path="res://scenes/components/shoot_bullet_at_player_component/shoot_bullet_at_player_component.tscn" id="2_nkjls"]
+[ext_resource type="AudioStream" uid="uid://oo3lce0q34yh" path="res://scenes/enemy/enemy_shoot.wav" id="3_jwnlt"]
 
 [node name="ShootBulletAtPlayerEnemy" type="Node2D"]
 
@@ -11,3 +12,4 @@ texture = ExtResource("1_efd30")
 [node name="ShootBulletAtPlayerComponent" parent="." node_paths=PackedStringArray("parent_firer") instance=ExtResource("2_nkjls")]
 parent_firer = NodePath("..")
 parent_distance_buffer = 12.0
+stream = ExtResource("3_jwnlt")

@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SettingsManager="*res://scenes/autoload/settings_manager/settings_manager.tscn"
+MusicManager="*res://scenes/autoload/music_manager/music_manager.tscn"
 
 [debug]
 
