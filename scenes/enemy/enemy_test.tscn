@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdr2nbadf3iaw"]
+[gd_scene load_steps=11 format=3 uid="uid://cdr2nbadf3iaw"]
 
+[ext_resource type="PackedScene" uid="uid://blnm6meamujn8" path="res://scenes/manager/death_manager/death_manager.tscn" id="1_47swu"]
 [ext_resource type="PackedScene" uid="uid://l38eatwjev7n" path="res://scenes/enemy/enemy.tscn" id="1_d8d8p"]
 [ext_resource type="PackedScene" uid="uid://cgi03k6n0yj2g" path="res://scenes/enemy/move_forward_enemy/move_forward_enemy.tscn" id="2_0e4jo"]
 [ext_resource type="PackedScene" uid="uid://b2vmd6cg3aakl" path="res://scenes/enemy/shoot_bullet_enemy/shoot_bullet_enemy.tscn" id="3_1kylx"]
@@ -12,6 +13,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_die47"]
 
 [node name="EnemyTest" type="Node"]
+
+[node name="DeathManager" parent="." instance=ExtResource("1_47swu")]
 
 [node name="Enemy" parent="." instance=ExtResource("1_d8d8p")]
 position = Vector2(86, 26)

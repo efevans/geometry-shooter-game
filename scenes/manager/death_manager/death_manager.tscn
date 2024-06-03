@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://blnm6meamujn8"]
+
+[node name="DeathManager" type="Node2D" groups=["death_manager_layer"]]
