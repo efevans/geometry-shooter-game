@@ -19,7 +19,7 @@
 	- [x] Enemy type that shoots straight forward
 		- [ ] SFX
 		- [x] Art - projectiles
-	- [ ] Enemy type that shoots towards player
+	- [x] Enemy type that shoots towards player
 		- [ ] SFX
 		- [ ] Art - projectiles
 	- [x] Enemy type that moves back and forth
