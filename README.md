@@ -14,13 +14,13 @@
 	- [x] Enemy type that moves straight forward
 		- [x] Art - body
 	- [x] Enemy type that dies on getting shot
-		- [ ] SFX
+		- [x] SFX
 		- [ ] Art - explosion
 	- [x] Enemy type that shoots straight forward
-		- [ ] SFX
+		- [x] SFX
 		- [x] Art - projectiles
 	- [x] Enemy type that shoots towards player
-		- [ ] SFX
+		- [x] SFX
 		- [ ] Art - projectiles
 	- [x] Enemy type that moves back and forth
 		- [ ] SFX
