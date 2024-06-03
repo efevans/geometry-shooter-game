@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://oqmy2dbyi8vq"]
+
+[ext_resource type="Script" path="res://scenes/components/shoot_bullet_at_player_component/shoot_bullet_at_player_component.gd" id="1_iksfa"]
+[ext_resource type="PackedScene" uid="uid://svu8yrkk206g" path="res://scenes/bullet/bullet.tscn" id="2_3sk1p"]
+
+[node name="ShootBulletAtPlayerComponent" type="Node"]
+script = ExtResource("1_iksfa")
+bullet_scene = ExtResource("2_3sk1p")
+
+[node name="ShootTimer" type="Timer" parent="."]
+unique_name_in_owner = true

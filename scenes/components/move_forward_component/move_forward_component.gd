@@ -1,5 +1,6 @@
 extends Node
 
+@export var speed: float = 60.0
 
-func move(object: Node2D, speed: float) -> void:
-	object.global_position += Vector2.DOWN * speed
+func move(object: Node2D, delta: float) -> void:
+	object.global_position += Vector2.DOWN * speed * delta

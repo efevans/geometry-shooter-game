@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://cqqx0fnucs4sd" path="res://scenes/enemy/enemy.png" id="1_8l0kg"]
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_jwj5e"]
-[ext_resource type="PackedScene" uid="uid://bsucvjrkive7c" path="res://scenes/components/move_forward_component/move_forward_component.tscn" id="2_ley3g"]
+[ext_resource type="PackedScene" uid="uid://dk7csm1d6fg0u" path="res://scenes/components/move_in_direction_component/move_in_direction_component.tscn" id="3_efj43"]
 
 [node name="MoveForwardEnemy" type="Node2D" node_paths=PackedStringArray("movement_component")]
 script = ExtResource("1_jwj5e")
-movement_component = NodePath("MoveForwardComponent")
+movement_component = NodePath("MoveInDirectionComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8l0kg")
 
-[node name="MoveForwardComponent" parent="." instance=ExtResource("2_ley3g")]
+[node name="MoveInDirectionComponent" parent="." instance=ExtResource("3_efj43")]

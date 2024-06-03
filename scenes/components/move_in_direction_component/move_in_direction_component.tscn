@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk7csm1d6fg0u"]
+
+[ext_resource type="Script" path="res://scenes/components/move_in_direction_component/move_in_direction_component.gd" id="1_w7npt"]
+
+[node name="MoveInDirectionComponent" type="Node"]
+script = ExtResource("1_w7npt")
