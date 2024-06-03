@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://du1h3ugy0xy51"]
+[gd_scene load_steps=16 format=3 uid="uid://du1h3ugy0xy51"]
 
 [ext_resource type="Shader" path="res://scenes/levels/level1/blur.gdshader" id="1_sy2q1"]
 [ext_resource type="PackedScene" uid="uid://cfsmh0c185db5" path="res://scenes/player/player.tscn" id="1_wrtrg"]
@@ -6,6 +6,17 @@
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fqdol"]
 viewport_path = NodePath("BackgroundViewport")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pilm8"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ecag8"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3v74m"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k76ff"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_opxxj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,6 +39,21 @@ fog_density = 0.1486
 fog_height = 4.05
 fog_height_density = 0.4235
 
+[sub_resource type="Animation" id="Animation_wrkij"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(154.6, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_3rcc2"]
 resource_name = "pan_bg"
 length = 35.0
@@ -45,21 +71,6 @@ tracks/0/keys = {
 "values": [Vector3(189.92, 33.236, 0), Vector3(-100.933, 33.236, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_wrkij"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(154.6, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xe1gs"]
 _data = {
 "RESET": SubResource("Animation_wrkij"),
@@ -72,12 +83,79 @@ shader_parameter/strength = 3.0
 
 [node name="Level1" type="Node2D"]
 
+[node name="UiLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelUi" type="Control" parent="UiLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 450.0
+offset_bottom = 800.0
+
+[node name="TEMP_BossUi" type="ColorRect" parent="UiLayer/LevelUi"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.99, 0.3861, 0.96987, 0.235294)
+
+[node name="This will be replaced with boss UI" type="Control" parent="UiLayer/LevelUi/TEMP_BossUi"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TEMP_PlayerUi" type="ColorRect" parent="UiLayer/LevelUi"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 0
+offset_top = 750.0
+offset_right = 450.0
+offset_bottom = 800.0
+color = Color(0.489895, 0.99, 0.3861, 0.235294)
+
+[node name="This will be replaced with player UI" type="Control" parent="UiLayer/LevelUi/TEMP_PlayerUi"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(225, 400)
 texture = SubResource("ViewportTexture_fqdol")
 
 [node name="Player" parent="." instance=ExtResource("1_wrtrg")]
-position = Vector2(209, 750)
+position = Vector2(209, 600)
+
+[node name="PlayerBoundary" type="Node2D" parent="."]
+
+[node name="PlayerBoundaryLeft" type="StaticBody2D" parent="PlayerBoundary"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundary/PlayerBoundaryLeft"]
+shape = SubResource("WorldBoundaryShape2D_pilm8")
+
+[node name="PlayerBoundaryTop" type="StaticBody2D" parent="PlayerBoundary"]
+position = Vector2(0, 75)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundary/PlayerBoundaryTop"]
+shape = SubResource("WorldBoundaryShape2D_ecag8")
+
+[node name="PlayerBoundaryRight" type="StaticBody2D" parent="PlayerBoundary"]
+position = Vector2(450, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundary/PlayerBoundaryRight"]
+position = Vector2(0, 75)
+shape = SubResource("WorldBoundaryShape2D_3v74m")
+
+[node name="PlayerBoundaryBottom" type="StaticBody2D" parent="PlayerBoundary"]
+position = Vector2(0, 750)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundary/PlayerBoundaryBottom"]
+shape = SubResource("WorldBoundaryShape2D_k76ff")
 
 [node name="BackgroundViewport" type="SubViewport" parent="."]
 size = Vector2i(450, 800)
