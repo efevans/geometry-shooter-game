@@ -40,6 +40,8 @@ movie_writer/movie_file="res://"
 
 folder_colors={
 "res://scenes/": "blue",
+"res://scenes/autoload/": "green",
+"res://scenes/components/": "green",
 "res://scripts/": "pink"
 }
 

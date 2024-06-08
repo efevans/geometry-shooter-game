@@ -1,12 +1,14 @@
 extends Node2D
 
-@onready var quit_button: Button = $Buttons/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/QuitButton
+@onready var quit_button: Button = %QuitButton
 
 
 func _ready() -> void:
 	# Hide quitting for web (it doesn't do anything)
 	if OS.has_feature("web"):
 		quit_button.visible = false
+
+	%PlayButton.grab_focus.call_deferred()
 
 
 func _on_play_button_pressed() -> void:

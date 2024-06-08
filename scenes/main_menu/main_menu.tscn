@@ -47,10 +47,12 @@ layout_mode = 2
 theme_override_constants/separation = 16
 
 [node name="PlayButton" type="Button" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Play"
 
 [node name="HighScoreButton" type="Button" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "High Scores"
 
@@ -59,10 +61,12 @@ layout_mode = 2
 theme_override_constants/separation = 16
 
 [node name="SettingsButton" type="Button" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
 
