@@ -17,7 +17,7 @@ func _ready() -> void:
 		preload("res://scenes/levels/level1/level_1.mp3"),
 		preload("res://scenes/levels/level1/level_1_boss.mp3")
 	])
-	pass 
+	pass
 
 
 func play_song(song: SONG) -> void:

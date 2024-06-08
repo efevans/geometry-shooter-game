@@ -25,3 +25,7 @@ func _physics_process(delta: float) -> void:
 	if !movement_component:
 		return
 	movement_component.move(self, delta)
+
+
+func _on_hitbox_component_hit() -> void:
+	queue_free()

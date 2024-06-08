@@ -1,15 +1,17 @@
 extends CharacterBody2D
 
 
-# Max velocity of the player. Think about this as "top speed".
-# Increase this to increase max speed, decrease to decrease max speed.
+## Max velocity of the player. Think about this as "top speed".
+## Increase this to increase max speed, decrease to decrease max speed.
 const MAX_VELOCITY = 300.0
-# Acceleration applied when the player inputs a movement.
-# Decrease the denomenator to "speed up faster", increase the denomenator to "speed up slower"
+## Acceleration applied when the player inputs a movement.
+## Decrease the denomenator to "speed up faster", increase the denomenator to "speed up slower"
 const ACCELERATION = MAX_VELOCITY / 3.0
-# Friction applied every frame
-# Decrease the denomenator to slow down faster, increase the denomenator to slow down slower
+## Friction applied every frame
+## Decrease the denomenator to slow down faster, increase the denomenator to slow down slower
 const FRICTION = MAX_VELOCITY / 10.0
+## Friction, but only when the player is dead.
+const DEATH_FRICTION = FRICTION / 3.0
 
 
 @onready var shoot_forward_bullet_component: ShootForwardBulletComponent = $ShootForwardBulletComponent
@@ -30,14 +32,21 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if is_dead:
-		return
-
 	# Slow down with friction
-	velocity.x = move_toward(velocity.x, 0, FRICTION)
-	velocity.y = move_toward(velocity.y, 0, FRICTION)
+	var active_friction: float
+	if is_dead:
+		active_friction = DEATH_FRICTION
+	else:
+		active_friction = FRICTION
+
+	velocity.x = move_toward(velocity.x, 0, active_friction)
+	velocity.y = move_toward(velocity.y, 0, active_friction)
 
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+
+	if is_dead:
+		direction = Vector2.ZERO
+
 	if direction:
 		# Speed up with acceleration
 		velocity += direction * ACCELERATION
@@ -70,7 +79,8 @@ func _on_firing_cooldown_timeout() -> void:
 func _on_health_component_death() -> void:
 	big_outer_explosion.emitting = true
 	small_inner_explosion.emitting = true
-	#$Visuals.visible = false
 	var fade_tween := create_tween()
-	fade_tween.tween_property($Visuals, "modulate", Color.TRANSPARENT, 1.0)
+	fade_tween.tween_property($Visuals, "modulate", Color.TRANSPARENT, 0.7)
 	is_dead = true
+	# Don't get hurt by bullets after we're dead
+	$HurtboxComponent.set_deferred("monitoring", false)

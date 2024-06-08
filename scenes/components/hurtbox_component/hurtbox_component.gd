@@ -15,3 +15,4 @@ func take_damage() -> void:
 
 func on_area_entered(other_area: Area2D) -> void:
 	take_damage()
+	other_area.on_hit()

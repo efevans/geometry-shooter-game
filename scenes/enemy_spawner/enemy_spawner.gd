@@ -26,13 +26,13 @@ var move_forward_enemy_scene: PackedScene = preload("res://scenes/enemy/move_for
 func spawn_basic_enemy_at_position(position: int) -> void:
 	var enemy_instance := basic_enemy_scene.instantiate() as Node2D
 	add_enemy_to_position_path(enemy_instance, position)
-	
-	
+
+
 func spawn_move_forward_enemy_at_position(position: int) -> void:
 	var enemy_instance := move_forward_enemy_scene.instantiate() as Node2D
 	move_enemy_to_position(enemy_instance, position)
-	
-	
+
+
 func add_enemy_to_position_path(enemy_instance: Node2D, position: int) -> void:
 	var path_follow_2d_instance := enemy_path_follow_2d.instantiate() as Node2D
 	path_follow_2d_instance.add_child(enemy_instance)
@@ -40,17 +40,17 @@ func add_enemy_to_position_path(enemy_instance: Node2D, position: int) -> void:
 	var position_node := get_position_node(position) as Node2D
 	var position_path_node := position_node.get_path_2d() as Path2D
 	position_path_node.add_child(path_follow_2d_instance)
-	
+
 
 func move_enemy_to_position(enemy_instance: Node2D, position: int) -> void:
 	var enemy_layer := CommonObjects.get_enemy_layer()
 	if !enemy_layer:
 		enemy_layer = get_tree().root
 	enemy_layer.add_child(enemy_instance)
-	
+
 	var position_node := get_position_node(position) as Node2D
 	enemy_instance.global_position = position_node.global_position
-	
-	
+
+
 func get_position_node(position: int) -> Node2D:
 	return positions[position - 1]

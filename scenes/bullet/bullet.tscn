@@ -23,3 +23,5 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_665bv")
+
+[connection signal="hit" from="HitboxComponent" to="." method="_on_hitbox_component_hit"]
