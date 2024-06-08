@@ -1,14 +1,14 @@
 - Player
 	- [x] Player character who can move around with keyboard controls
 		- [ ] Art - character body
-	- [ ] Player character who can shoot forward in a straight line
-		- [ ] SFX
+	- [x] Player character who can shoot forward in a straight line
+		- [x] SFX
 		- [ ] Art - projectiles
-	- [ ] Player character dies on being touched
+	- [x] Player character dies on being touched
 		- [ ] SFX
 		- [ ] Art - explosion
 	- [ ] Player character dies on being shot
-	- [ ] Rotation animations while moving left and rightggg
+	- [ ] Rotation animations while moving left and right
 
 - Enemy
 	- [x] Enemy type that moves straight forward
@@ -59,7 +59,7 @@
 		- [x] Volume sliders
 		- [ ] SFX
 	- [ ] High Scores page
-	- [ ] Background music that begins when loading the main menu
+	- [x] Background music that begins when loading the main menu
 	- [ ] Themeing
 		- [ ] Font
 		- [ ] Button styling

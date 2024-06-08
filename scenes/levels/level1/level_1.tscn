@@ -1,10 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://du1h3ugy0xy51"]
+[gd_scene load_steps=22 format=3 uid="uid://du1h3ugy0xy51"]
 
 [ext_resource type="PackedScene" uid="uid://blnm6meamujn8" path="res://scenes/manager/death_manager/death_manager.tscn" id="1_l8qs7"]
+[ext_resource type="Script" path="res://scenes/levels/level1/level_1.gd" id="1_m6gct"]
 [ext_resource type="PackedScene" uid="uid://b76fdgkoibcat" path="res://scenes/enemy_spawner/enemy_spawner.tscn" id="1_n3u6k"]
 [ext_resource type="Shader" path="res://scenes/levels/level1/blur.gdshader" id="1_sy2q1"]
 [ext_resource type="PackedScene" uid="uid://cfsmh0c185db5" path="res://scenes/player/player.tscn" id="1_wrtrg"]
 [ext_resource type="PackedScene" uid="uid://bsyhvv62vh4ej" path="res://scenes/levels/level1/background/geometry_background.tscn" id="2_ie35k"]
+[ext_resource type="PackedScene" uid="uid://dlur44elqdbkg" path="res://scenes/enemy/die_on_hit_enemy/die_on_hit_enemy.tscn" id="5_fa3gg"]
+[ext_resource type="PackedScene" uid="uid://b2vmd6cg3aakl" path="res://scenes/enemy/shoot_bullet_enemy/shoot_bullet_enemy.tscn" id="6_dwauh"]
+[ext_resource type="PackedScene" uid="uid://vx85fxunnudo" path="res://scenes/enemy/shoot_bullet_at_player_enemy/shoot_bullet_at_player_enemy.tscn" id="7_8qpsd"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fqdol"]
 viewport_path = NodePath("BackgroundViewport")
@@ -84,6 +88,7 @@ shader = ExtResource("1_sy2q1")
 shader_parameter/strength = 3.0
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_m6gct")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_n3u6k")]
 
@@ -127,6 +132,33 @@ texture = SubResource("ViewportTexture_fqdol")
 [node name="DeathManager" parent="." instance=ExtResource("1_l8qs7")]
 
 [node name="Enemies" type="Node" parent="." groups=["enemy_layer"]]
+
+[node name="DieOnHitEnemy" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(67, 228)
+
+[node name="DieOnHitEnemy2" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(207, 243)
+
+[node name="DieOnHitEnemy3" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(315, 188)
+
+[node name="DieOnHitEnemy4" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(372, 318)
+
+[node name="DieOnHitEnemy5" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(110, 380)
+
+[node name="ShootBulletEnemy" parent="Enemies" instance=ExtResource("6_dwauh")]
+position = Vector2(248, 147)
+
+[node name="ShootBulletEnemy2" parent="Enemies" instance=ExtResource("6_dwauh")]
+position = Vector2(111, 143)
+
+[node name="ShootBulletAtPlayerEnemy" parent="Enemies" instance=ExtResource("7_8qpsd")]
+position = Vector2(377, 226)
+
+[node name="ShootBulletAtPlayerEnemy2" parent="Enemies" instance=ExtResource("7_8qpsd")]
+position = Vector2(101, 217)
 
 [node name="Player" parent="." instance=ExtResource("1_wrtrg")]
 position = Vector2(209, 600)
@@ -188,3 +220,5 @@ autoplay = "pan_bg"
 material = SubResource("ShaderMaterial_ktutk")
 offset_right = 450.0
 offset_bottom = 800.0
+
+[node name="Enemies2" type="Node2D" parent="."]

@@ -6,5 +6,5 @@
 script = ExtResource("1_a633d")
 
 [node name="DeathSoundPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -4.0
+volume_db = -8.0
 bus = &"SFX"

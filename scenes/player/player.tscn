@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfsmh0c185db5"]
+[gd_scene load_steps=22 format=3 uid="uid://cfsmh0c185db5"]
 
 [ext_resource type="Texture2D" uid="uid://dlvw5580u4m8l" path="res://scenes/player/player.png" id="1_43pf7"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_x4sp7"]
+[ext_resource type="PackedScene" uid="uid://kuc0ec6psiuo" path="res://scenes/components/shoot_forward_bullet_component/shoot_forward_bullet_component.tscn" id="3_4i51a"]
+[ext_resource type="AudioStream" uid="uid://hp7nhscw7uff" path="res://scenes/player/player_shoot.wav" id="4_vnuie"]
+[ext_resource type="PackedScene" uid="uid://db02bok0g2fif" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="5_gdt6x"]
+[ext_resource type="PackedScene" uid="uid://bcnttpc4vi14i" path="res://scenes/components/health_component/health_component.tscn" id="6_8t2ql"]
+[ext_resource type="Texture2D" uid="uid://dav4mxo63xkga" path="res://scenes/player/player_death.png" id="7_6nx4e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmw1y"]
 size = Vector2(15, 10)
@@ -12,8 +17,71 @@ size = Vector2(26, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjcpm"]
 size = Vector2(6, 7)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p763l"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_k5cxf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.125668, 1), 0.0, 0.0, 0, 0, Vector2(0.574866, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_hqoji"]
+curve = SubResource("Curve_k5cxf")
+
+[sub_resource type="Gradient" id="Gradient_36lht"]
+colors = PackedColorArray(0.875, 0.240005, 0.174316, 1, 0.527344, 0.527344, 0.527344, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kipiu"]
+gradient = SubResource("Gradient_36lht")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a1415"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 90.0
+initial_velocity_min = 35.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_kipiu")
+alpha_curve = SubResource("CurveTexture_hqoji")
+anim_speed_min = 0.5
+anim_speed_max = 1.0
+anim_offset_min = 0.2
+anim_offset_max = 0.7
+
+[sub_resource type="Curve" id="Curve_cv611"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.574866, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rs58i"]
+curve = SubResource("Curve_cv611")
+
+[sub_resource type="Gradient" id="Gradient_l5d7w"]
+offsets = PackedFloat32Array(0.00578035, 1)
+colors = PackedColorArray(0.945313, 0.867363, 0.232635, 1, 0.476563, 0.346252, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8mklr"]
+gradient = SubResource("Gradient_l5d7w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_54f37"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_8mklr")
+alpha_curve = SubResource("CurveTexture_rs58i")
+anim_speed_min = 0.5
+anim_speed_max = 1.0
+anim_offset_min = 0.2
+anim_offset_max = 0.7
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_mask = 5
+collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_x4sp7")
 
@@ -33,3 +101,44 @@ shape = SubResource("RectangleShape2D_b2kcu")
 [node name="BodyCollider3" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_pjcpm")
+
+[node name="ShootForwardBulletComponent" parent="." node_paths=PackedStringArray("parent_firer") instance=ExtResource("3_4i51a")]
+shoot_timeout = -1.0
+movement_direction = Vector2(0, -1)
+bullet_speed = 450.0
+parent_firer = NodePath("..")
+parent_distance_buffer = 1.5
+parent_is_player = true
+stream = ExtResource("4_vnuie")
+
+[node name="FiringCooldown" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_gdt6x")]
+collision_mask = 2
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent"]
+polygon = PackedVector2Array(14, 12, 0, -15, -14, 12)
+
+[node name="HealthComponent" parent="." instance=ExtResource("6_8t2ql")]
+skip_queue_free = true
+
+[node name="BigOuterExplosion" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_p763l")
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_a1415")
+texture = ExtResource("7_6nx4e")
+lifetime = 3.0
+explosiveness = 0.9
+
+[node name="SmallInnerExplosion" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_p763l")
+process_material = SubResource("ParticleProcessMaterial_54f37")
+texture = ExtResource("7_6nx4e")
+lifetime = 3.0
+explosiveness = 0.9
+
+[connection signal="timeout" from="FiringCooldown" to="." method="_on_firing_cooldown_timeout"]
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

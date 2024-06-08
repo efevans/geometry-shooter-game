@@ -4,4 +4,4 @@ extends Node
 @export var direction: Vector2 = Vector2.DOWN
 
 func move(object: Node2D, delta: float) -> void:
-	object.global_position += Vector2.DOWN * speed * delta
+	object.global_position += direction * speed * delta
