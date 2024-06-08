@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SettingsManager="*res://scenes/autoload/settings_manager/settings_manager.tscn"
 MusicManager="*res://scenes/autoload/music_manager/music_manager.tscn"
 CommonObjects="*res://scenes/autoload/common_objects/common_objects.tscn"
+GameEvents="*res://scenes/autoload/game_events/game_events.tscn"
 
 [debug]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://du1h3ugy0xy51"]
+[gd_scene load_steps=21 format=3 uid="uid://du1h3ugy0xy51"]
 
 [ext_resource type="PackedScene" uid="uid://blnm6meamujn8" path="res://scenes/manager/death_manager/death_manager.tscn" id="1_l8qs7"]
 [ext_resource type="Script" path="res://scenes/levels/level1/level_1.gd" id="1_m6gct"]
@@ -6,6 +6,8 @@
 [ext_resource type="Shader" path="res://scenes/levels/level1/blur.gdshader" id="1_sy2q1"]
 [ext_resource type="PackedScene" uid="uid://cfsmh0c185db5" path="res://scenes/player/player.tscn" id="1_wrtrg"]
 [ext_resource type="PackedScene" uid="uid://bsyhvv62vh4ej" path="res://scenes/levels/level1/background/geometry_background.tscn" id="2_ie35k"]
+[ext_resource type="PackedScene" uid="uid://dtrfbcnau5sdg" path="res://scenes/level_ui/ui_layer.tscn" id="3_b1krp"]
+[ext_resource type="PackedScene" uid="uid://dlur44elqdbkg" path="res://scenes/enemy/die_on_hit_enemy/die_on_hit_enemy.tscn" id="5_fa3gg"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fqdol"]
 viewport_path = NodePath("BackgroundViewport")
@@ -89,38 +91,7 @@ script = ExtResource("1_m6gct")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_n3u6k")]
 
-[node name="UiLayer" type="CanvasLayer" parent="."]
-
-[node name="LevelUi" type="Control" parent="UiLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 450.0
-offset_bottom = 800.0
-
-[node name="TEMP_BossUi" type="ColorRect" parent="UiLayer/LevelUi"]
-custom_minimum_size = Vector2(450, 75)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.99, 0.3861, 0.96987, 0.235294)
-
-[node name="This will be replaced with boss UI" type="Control" parent="UiLayer/LevelUi/TEMP_BossUi"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TEMP_PlayerUi" type="ColorRect" parent="UiLayer/LevelUi"]
-custom_minimum_size = Vector2(450, 50)
-layout_mode = 0
-offset_top = 750.0
-offset_right = 450.0
-offset_bottom = 800.0
-color = Color(0.489895, 0.99, 0.3861, 0.235294)
-
-[node name="This will be replaced with player UI" type="Control" parent="UiLayer/LevelUi/TEMP_PlayerUi"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="UiLayer" parent="." instance=ExtResource("3_b1krp")]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(225, 400)
@@ -129,6 +100,15 @@ texture = SubResource("ViewportTexture_fqdol")
 [node name="DeathManager" parent="." instance=ExtResource("1_l8qs7")]
 
 [node name="Enemies" type="Node" parent="." groups=["enemy_layer"]]
+
+[node name="DieOnHitEnemy" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(165, 254)
+
+[node name="DieOnHitEnemy2" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(283, 253)
+
+[node name="DieOnHitEnemy3" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(221, 209)
 
 [node name="Player" parent="." instance=ExtResource("1_wrtrg")]
 position = Vector2(209, 600)

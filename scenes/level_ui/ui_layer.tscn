@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtrfbcnau5sdg"]
+
+[ext_resource type="Script" path="res://scenes/level_ui/PlayerUi.gd" id="1_0xnue"]
+[ext_resource type="Texture2D" uid="uid://dlvw5580u4m8l" path="res://scenes/player/player.png" id="1_wbw75"]
+
+[node name="LevelUi" type="CanvasLayer"]
+
+[node name="LevelUi" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 450.0
+offset_bottom = 800.0
+
+[node name="TEMP_BossUi" type="ColorRect" parent="LevelUi"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.99, 0.3861, 0.96987, 0.235294)
+
+[node name="This will be replaced with boss UI" type="Control" parent="LevelUi/TEMP_BossUi"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerUi" type="Control" parent="LevelUi"]
+anchors_preset = 0
+offset_top = 750.0
+offset_right = 450.0
+offset_bottom = 800.0
+script = ExtResource("1_0xnue")
+
+[node name="ColorRect" type="ColorRect" parent="LevelUi/PlayerUi"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="ScoreLabel" type="Label" parent="LevelUi/PlayerUi"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -3.0
+offset_right = 192.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 40
+text = "00000000"
+vertical_alignment = 1
+
+[node name="RemainingLives" type="HBoxContainer" parent="LevelUi/PlayerUi"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -25.0
+offset_right = -4.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="LevelUi/PlayerUi/RemainingLives"]
+layout_mode = 2
+texture = ExtResource("1_wbw75")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="LevelUi/PlayerUi/RemainingLives"]
+layout_mode = 2
+texture = ExtResource("1_wbw75")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="LevelUi/PlayerUi/RemainingLives"]
+layout_mode = 2
+texture = ExtResource("1_wbw75")
+stretch_mode = 3

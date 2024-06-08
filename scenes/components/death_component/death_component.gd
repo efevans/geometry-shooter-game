@@ -1,11 +1,11 @@
 extends Node2D
 
-@export var health_component: Node
+@export var health_component: HealthComponent
 @export var stream: AudioStream
 
 
 func _ready() -> void:
-	(health_component as HealthComponent).death.connect(on_death)
+	health_component.death.connect(on_death)
 	$DeathSoundPlayer.stream = stream
 
 #play death animation
@@ -21,3 +21,4 @@ func on_death() -> void:
 
 	$DeathSoundPlayer.play()
 
+	GameEvents.emit_enemy_died()
