@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://db0vjfpwexfpk"]
+
+[ext_resource type="Script" path="res://scenes/ui/labeled_marker_2d/labeled_marker_2d.gd" id="1_tadet"]
+
+[node name="LabeledMarker2D" type="Marker2D"]
+script = ExtResource("1_tadet")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 16

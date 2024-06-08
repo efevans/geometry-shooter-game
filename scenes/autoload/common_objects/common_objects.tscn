@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crwpie4fce23"]
+
+[ext_resource type="Script" path="res://scenes/autoload/common_objects/common_objects.gd" id="1_sbc1f"]
+
+[node name="CommonObjects" type="Node"]
+script = ExtResource("1_sbc1f")

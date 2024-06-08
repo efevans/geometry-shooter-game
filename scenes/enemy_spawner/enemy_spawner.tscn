@@ -1,0 +1,252 @@
+[gd_scene load_steps=21 format=3 uid="uid://b76fdgkoibcat"]
+
+[ext_resource type="Script" path="res://scenes/enemy_spawner/enemy_spawner.gd" id="1_efano"]
+[ext_resource type="PackedScene" uid="uid://db0vjfpwexfpk" path="res://scenes/ui/labeled_marker_2d/labeled_marker_2d.tscn" id="2_4m4bq"]
+[ext_resource type="PackedScene" uid="uid://b1aowtx4rcpat" path="res://scenes/enemy/enemy_path_follow_2d/enemy_path_follow_2d.tscn" id="4_f4m7p"]
+
+[sub_resource type="Animation" id="Animation_2oiku"]
+resource_name = "level_1"
+length = 30.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [5],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [11],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b08i4"]
+_data = {
+"level_1": SubResource("Animation_2oiku")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_p3uo6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, 0, -39.7299, 52.9732, 39.7299, -52.9732, 350, 0, 97.4706, 0, -97.4706, 0, 278, -136, -42.9083, -52.4434, 42.9083, 52.4434, 198, 0, 0, 0, 0, 0, 630, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_y7nnt"]
+
+[sub_resource type="Curve2D" id="Curve2D_kx2h0"]
+
+[sub_resource type="Curve2D" id="Curve2D_yhekv"]
+
+[sub_resource type="Curve2D" id="Curve2D_xy7ao"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 32, -32, 0, 0, 0, 0, 32, 128, 0, 0, 0, 0, 464, 992)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_owud0"]
+
+[sub_resource type="Curve2D" id="Curve2D_b4qwt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, -2, 0, -63, 0, 63, 222, 286, 0, 0, 0, 0, -354, 478)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_5hlj2"]
+
+[sub_resource type="Curve2D" id="Curve2D_y1gpm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, -2, 1, -65, -1, 65, -226, 286, 0, 0, 0, 0, 350, 478)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_hxkck"]
+
+[sub_resource type="Curve2D" id="Curve2D_u4lt6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 0, 158, 0, 0, 0, 0, -440, 1014)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_y508c"]
+
+[sub_resource type="Curve2D" id="Curve2D_3hgxp"]
+
+[sub_resource type="Curve2D" id="Curve2D_qcday"]
+
+[sub_resource type="Curve2D" id="Curve2D_kag1e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, 0, 33, 40.5, -33, -40.5, -314, 0, -98.5, 2.5, 98.5, -2.5, -234, -136, 36.5, -41.5, -36.5, 41.5, -162, 0, 0, 0, 0, 0, -642, 0)
+}
+point_count = 5
+
+[node name="EnemySpawner" type="Node" node_paths=PackedStringArray("positions")]
+script = ExtResource("1_efano")
+positions = [NodePath("SpawnMarkers/1"), NodePath("SpawnMarkers/2"), NodePath("SpawnMarkers/3"), NodePath("SpawnMarkers/4"), NodePath("SpawnMarkers/5"), NodePath("SpawnMarkers/6"), NodePath("SpawnMarkers/7"), NodePath("SpawnMarkers/8"), NodePath("SpawnMarkers/9"), NodePath("SpawnMarkers/10"), NodePath("SpawnMarkers/11"), NodePath("SpawnMarkers/12"), NodePath("SpawnMarkers/13"), NodePath("SpawnMarkers/14"), NodePath("SpawnMarkers/15")]
+enemy_path_follow_2d = ExtResource("4_f4m7p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b08i4")
+}
+autoplay = "level_1"
+
+[node name="SpawnMarkers" type="Node" parent="."]
+
+[node name="1" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(-30, 160)
+label_value = "1"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/1"]
+curve = SubResource("Curve2D_p3uo6")
+
+[node name="2" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(-30, 98)
+label_value = "2"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/2"]
+curve = SubResource("Curve2D_y7nnt")
+
+[node name="3" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(-30, 34)
+label_value = "3"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/3"]
+curve = SubResource("Curve2D_kx2h0")
+
+[node name="4" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(-30, -30)
+label_value = "4"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/4"]
+curve = SubResource("Curve2D_yhekv")
+
+[node name="5" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(34, -30)
+label_value = "5"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/5"]
+position = Vector2(-34, 30)
+curve = SubResource("Curve2D_xy7ao")
+
+[node name="6" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(98, -30)
+label_value = "6"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/6"]
+curve = SubResource("Curve2D_owud0")
+
+[node name="7" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(162, -30)
+label_value = "7"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/7"]
+curve = SubResource("Curve2D_b4qwt")
+
+[node name="8" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(226, -30)
+label_value = "8"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/8"]
+curve = SubResource("Curve2D_5hlj2")
+
+[node name="9" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(290, -30)
+label_value = "9"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/9"]
+curve = SubResource("Curve2D_y1gpm")
+
+[node name="10" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(354, -30)
+label_value = "10"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/10"]
+curve = SubResource("Curve2D_hxkck")
+
+[node name="11" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(416, -30)
+label_value = "11"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/11"]
+curve = SubResource("Curve2D_u4lt6")
+
+[node name="12" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(482, -30)
+label_value = "12"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/12"]
+curve = SubResource("Curve2D_y508c")
+
+[node name="13" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(482, 34)
+label_value = "13"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/13"]
+curve = SubResource("Curve2D_3hgxp")
+
+[node name="14" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(482, 98)
+label_value = "14"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/14"]
+curve = SubResource("Curve2D_qcday")
+
+[node name="15" parent="SpawnMarkers" instance=ExtResource("2_4m4bq")]
+position = Vector2(482, 160)
+label_value = "15"
+
+[node name="Path2D" type="Path2D" parent="SpawnMarkers/15"]
+curve = SubResource("Curve2D_kag1e")
