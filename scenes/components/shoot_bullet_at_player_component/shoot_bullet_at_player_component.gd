@@ -27,4 +27,7 @@ func on_shoot_timeout() -> void:
 	var normalized_direction_to_player := (player.global_position - bullet_instance.global_position).normalized()
 	bullet_instance.set_direction(normalized_direction_to_player)
 
+	# Bullets shot at the player are never from the player
+	bullet_instance.set_is_from_enemy()
+
 	$ShootBulletPlayer.play()

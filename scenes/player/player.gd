@@ -15,8 +15,24 @@ const FRICTION = MAX_VELOCITY / 10.0
 @onready var shoot_forward_bullet_component: ShootForwardBulletComponent = $ShootForwardBulletComponent
 @onready var firing_cooldown: Timer = $FiringCooldown
 
+@onready var big_outer_explosion: GPUParticles2D = $BigOuterExplosion
+@onready var small_inner_explosion: GPUParticles2D = $SmallInnerExplosion
+
+
+var is_dead := false
+
+
+func _ready() -> void:
+	big_outer_explosion.emitting = false
+	big_outer_explosion.one_shot = true
+	small_inner_explosion.emitting = false
+	small_inner_explosion.one_shot = true
+
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
+
 	# Slow down with friction
 	velocity.x = move_toward(velocity.x, 0, FRICTION)
 	velocity.y = move_toward(velocity.y, 0, FRICTION)
@@ -32,6 +48,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
+	if is_dead:
+		return
+
 	if event.is_action_pressed("player_shoot"):
 		if firing_cooldown.time_left > 0:
 			return
@@ -40,6 +59,18 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func _on_firing_cooldown_timeout() -> void:
+	if is_dead:
+		return
+
 	if Input.is_action_pressed("player_shoot"):
 		shoot_forward_bullet_component.fire_bullet()
 		firing_cooldown.start()
+
+
+func _on_health_component_death() -> void:
+	big_outer_explosion.emitting = true
+	small_inner_explosion.emitting = true
+	#$Visuals.visible = false
+	var fade_tween := create_tween()
+	fade_tween.tween_property($Visuals, "modulate", Color.TRANSPARENT, 1.0)
+	is_dead = true

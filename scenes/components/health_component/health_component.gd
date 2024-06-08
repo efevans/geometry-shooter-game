@@ -3,6 +3,8 @@ class_name HealthComponent
 
 signal death
 
+@export var skip_queue_free := false
+
 @export var max_health: int = 1
 var current_health: int = 0
 
@@ -18,4 +20,5 @@ func hurt(damage: int) -> void:
 	current_health -= damage
 	if current_health <= 0:
 		death.emit()
-		owner.queue_free()
+		if not skip_queue_free:
+			owner.queue_free()
