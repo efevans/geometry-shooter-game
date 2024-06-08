@@ -59,7 +59,7 @@
 		- [x] Volume sliders
 		- [ ] SFX
 	- [ ] High Scores page
-	- [ ] Background music that begins when loading the main menu
+	- [x] Background music that begins when loading the main menu
 	- [ ] Themeing
 		- [ ] Font
 		- [ ] Button styling
