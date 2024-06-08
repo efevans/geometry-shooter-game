@@ -17,13 +17,18 @@ func _ready() -> void:
 		preload("res://scenes/levels/level1/level_1.mp3"),
 		preload("res://scenes/levels/level1/level_1_boss.mp3")
 	])
-	pass
 
 
 func play_song(song: SONG) -> void:
-	stream = song_list[song]
+	var new_song := song_list[song]
+
+	# Don't do anything if we're trying to play the same song
+	# Otherwise we'll get weird skipping artifacts
+	if new_song == stream:
+		return
+
+	stream = new_song
 	play()
-	pass
 
 
 

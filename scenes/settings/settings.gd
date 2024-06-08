@@ -26,3 +26,7 @@ func _on_sfx_volume_value_change(value: float) -> void:
 
 func _on_music_volume_value_change(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioConfig.MUSIC_BUS_INDEX, linear_to_db(value / 100.0))
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

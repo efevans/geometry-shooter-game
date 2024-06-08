@@ -9,7 +9,7 @@ func _ready() -> void:
 		quit_button.visible = false
 
 	%PlayButton.grab_focus.call_deferred()
-	
+
 	MusicManager.play_song(MusicManager.SONG.MENU)
 
 

@@ -42,9 +42,18 @@ unique_name_in_owner = true
 layout_mode = 2
 label_name = "Music"
 
+[node name="Spacer" type="Control" parent="Control/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back to Main Menu"
+
 [connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/MainVolume" to="." method="_on_main_volume_value_change"]
 [connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/MainVolume" to="." method="flush_settings_to_disk"]
 [connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/SfxVolume" to="." method="_on_sfx_volume_value_change"]
 [connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/SfxVolume" to="." method="flush_settings_to_disk"]
 [connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_change"]
 [connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/MusicVolume" to="." method="flush_settings_to_disk"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
