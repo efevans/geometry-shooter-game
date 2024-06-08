@@ -12,6 +12,10 @@ const ACCELERATION = MAX_VELOCITY / 3.0
 const FRICTION = MAX_VELOCITY / 10.0
 
 
+@onready var shoot_forward_bullet_component: ShootForwardBulletComponent = $ShootForwardBulletComponent
+@onready var firing_cooldown: Timer = $FiringCooldown
+
+
 func _physics_process(delta: float) -> void:
 	# Slow down with friction
 	velocity.x = move_toward(velocity.x, 0, FRICTION)
@@ -25,3 +29,17 @@ func _physics_process(delta: float) -> void:
 		velocity.y = clampf(velocity.y, -MAX_VELOCITY, MAX_VELOCITY)
 
 	move_and_slide()
+
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("player_shoot"):
+		if firing_cooldown.time_left > 0:
+			return
+		shoot_forward_bullet_component.fire_bullet()
+		firing_cooldown.start()
+
+
+func _on_firing_cooldown_timeout() -> void:
+	if Input.is_action_pressed("player_shoot"):
+		shoot_forward_bullet_component.fire_bullet()
+		firing_cooldown.start()

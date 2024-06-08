@@ -1,8 +1,8 @@
 - Player
 	- [x] Player character who can move around with keyboard controls
 		- [ ] Art - character body
-	- [ ] Player character who can shoot forward in a straight line
-		- [ ] SFX
+	- [x] Player character who can shoot forward in a straight line
+		- [x] SFX
 		- [ ] Art - projectiles
 	- [ ] Player character dies on being touched
 		- [ ] SFX

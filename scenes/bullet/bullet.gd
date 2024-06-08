@@ -6,8 +6,8 @@ class_name Bullet
 
 func set_speed(speed: float) -> void:
 	movement_component.speed = speed
-	
-	
+
+
 func set_direction(direction: Vector2) -> void:
 	movement_component.direction = direction
 	rotation = direction.angle() - PI / 2
