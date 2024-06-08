@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfsmh0c185db5"]
+[gd_scene load_steps=10 format=3 uid="uid://cfsmh0c185db5"]
 
 [ext_resource type="Texture2D" uid="uid://dlvw5580u4m8l" path="res://scenes/player/player.png" id="1_43pf7"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_x4sp7"]
 [ext_resource type="PackedScene" uid="uid://kuc0ec6psiuo" path="res://scenes/components/shoot_forward_bullet_component/shoot_forward_bullet_component.tscn" id="3_4i51a"]
 [ext_resource type="AudioStream" uid="uid://hp7nhscw7uff" path="res://scenes/player/player_shoot.wav" id="4_vnuie"]
+[ext_resource type="PackedScene" uid="uid://db02bok0g2fif" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="5_gdt6x"]
+[ext_resource type="PackedScene" uid="uid://bcnttpc4vi14i" path="res://scenes/components/health_component/health_component.tscn" id="6_8t2ql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmw1y"]
 size = Vector2(15, 10)
@@ -15,7 +17,7 @@ size = Vector2(26, 10)
 size = Vector2(6, 7)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_mask = 5
+collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_x4sp7")
 
@@ -42,10 +44,20 @@ movement_direction = Vector2(0, -1)
 bullet_speed = 450.0
 parent_firer = NodePath("..")
 parent_distance_buffer = 1.5
+parent_is_player = true
 stream = ExtResource("4_vnuie")
 
 [node name="FiringCooldown" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_gdt6x")]
+collision_mask = 2
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent"]
+polygon = PackedVector2Array(14, 12, 0, -15, -14, 12)
+
+[node name="HealthComponent" parent="." instance=ExtResource("6_8t2ql")]
 
 [connection signal="timeout" from="FiringCooldown" to="." method="_on_firing_cooldown_timeout"]

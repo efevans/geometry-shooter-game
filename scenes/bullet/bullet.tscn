@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://svu8yrkk206g"]
+[gd_scene load_steps=6 format=3 uid="uid://svu8yrkk206g"]
 
 [ext_resource type="Texture2D" uid="uid://bv0qyds5871vu" path="res://scenes/bullet/bullet.png" id="1_li7an"]
 [ext_resource type="Script" path="res://scenes/bullet/bullet.gd" id="1_slfou"]
 [ext_resource type="PackedScene" uid="uid://dk7csm1d6fg0u" path="res://scenes/components/move_in_direction_component/move_in_direction_component.tscn" id="3_yhsdy"]
+[ext_resource type="PackedScene" uid="uid://bj2gsm2yk3ykv" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="4_7pw5n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_665bv"]
+radius = 4.12311
 
 [node name="Bullet" type="Node2D" node_paths=PackedStringArray("movement_component")]
 script = ExtResource("1_slfou")
@@ -12,3 +16,10 @@ movement_component = NodePath("MoveInDirectionComponent")
 texture = ExtResource("1_li7an")
 
 [node name="MoveInDirectionComponent" parent="." instance=ExtResource("3_yhsdy")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_7pw5n")]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_665bv")

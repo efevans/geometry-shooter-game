@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://du1h3ugy0xy51"]
+[gd_scene load_steps=18 format=3 uid="uid://du1h3ugy0xy51"]
 
 [ext_resource type="PackedScene" uid="uid://blnm6meamujn8" path="res://scenes/manager/death_manager/death_manager.tscn" id="1_l8qs7"]
 [ext_resource type="Shader" path="res://scenes/levels/level1/blur.gdshader" id="1_sy2q1"]
 [ext_resource type="PackedScene" uid="uid://cfsmh0c185db5" path="res://scenes/player/player.tscn" id="1_wrtrg"]
 [ext_resource type="PackedScene" uid="uid://bsyhvv62vh4ej" path="res://scenes/levels/level1/background/geometry_background.tscn" id="2_ie35k"]
+[ext_resource type="PackedScene" uid="uid://dlur44elqdbkg" path="res://scenes/enemy/die_on_hit_enemy/die_on_hit_enemy.tscn" id="5_fa3gg"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fqdol"]
 viewport_path = NodePath("BackgroundViewport")
@@ -183,3 +184,20 @@ autoplay = "pan_bg"
 material = SubResource("ShaderMaterial_ktutk")
 offset_right = 450.0
 offset_bottom = 800.0
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="DieOnHitEnemy" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(67, 228)
+
+[node name="DieOnHitEnemy2" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(207, 243)
+
+[node name="DieOnHitEnemy3" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(315, 188)
+
+[node name="DieOnHitEnemy4" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(372, 318)
+
+[node name="DieOnHitEnemy5" parent="Enemies" instance=ExtResource("5_fa3gg")]
+position = Vector2(110, 380)

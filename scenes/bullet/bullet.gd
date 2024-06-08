@@ -13,6 +13,14 @@ func set_direction(direction: Vector2) -> void:
 	rotation = direction.angle() - PI / 2
 
 
+func set_is_from_player() -> void:
+	$HitboxComponent.collision_layer = 1 << 0
+
+
+func set_is_from_enemy() -> void:
+	$HitboxComponent.collision_layer = 1 << 1
+
+
 func _physics_process(delta: float) -> void:
 	if !movement_component:
 		return

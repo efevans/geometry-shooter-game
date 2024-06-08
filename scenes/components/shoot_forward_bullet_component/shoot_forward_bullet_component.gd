@@ -10,6 +10,7 @@ class_name ShootForwardBulletComponent
 @export_group("Parent Properties")
 @export var parent_firer: Node2D
 @export var parent_distance_buffer: float = 0.0
+@export var parent_is_player := false
 @export var stream: AudioStream
 
 
@@ -32,5 +33,9 @@ func fire_bullet() -> void:
 	if bullet_speed != -1:
 		bullet_instance.set_speed(bullet_speed)
 	bullet_instance.global_position = parent_firer.global_position + movement_direction * parent_distance_buffer
+	if parent_is_player:
+		bullet_instance.set_is_from_player()
+	else:
+		bullet_instance.set_is_from_enemy()
 
 	$ShootBulletPlayer.play()
