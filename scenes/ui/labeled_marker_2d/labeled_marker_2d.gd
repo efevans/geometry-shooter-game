@@ -12,7 +12,7 @@ extends Marker2D
 func _ready() -> void:
 	if !Engine.is_editor_hint():
 		label.visible = false;
-		
-		
+
+
 func get_path_2d() -> Path2D:
 	return $Path2D

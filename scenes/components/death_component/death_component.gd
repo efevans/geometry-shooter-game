@@ -21,4 +21,5 @@ func on_death() -> void:
 
 	$DeathSoundPlayer.play()
 
+	# This does assume we're an enemy, but right now the player has custom death animation logic
 	GameEvents.emit_enemy_died()

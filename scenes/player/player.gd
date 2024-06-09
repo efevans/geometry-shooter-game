@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 
 ## Max velocity of the player. Think about this as "top speed".
 ## Increase this to increase max speed, decrease to decrease max speed.
@@ -29,6 +29,16 @@ func _ready() -> void:
 	big_outer_explosion.one_shot = true
 	small_inner_explosion.emitting = false
 	small_inner_explosion.one_shot = true
+
+	GameEvents.player_spawned.connect(on_player_spawn)
+
+
+func on_player_spawn() -> void:
+	is_dead = false
+	$HurtboxComponent.set_deferred("monitoring", true)
+	big_outer_explosion.emitting = false
+	small_inner_explosion.emitting = false
+	$Visuals.modulate = Color.WHITE
 
 
 func _physics_process(delta: float) -> void:
@@ -84,3 +94,5 @@ func _on_health_component_death() -> void:
 	is_dead = true
 	# Don't get hurt by bullets after we're dead
 	$HurtboxComponent.set_deferred("monitoring", false)
+	await big_outer_explosion.finished
+	GameEvents.emit_player_died()

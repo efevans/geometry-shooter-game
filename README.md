@@ -4,10 +4,10 @@
 	- [x] Player character who can shoot forward in a straight line
 		- [x] SFX
 		- [ ] Art - projectiles
-	- [x] Player character dies on being touched
+	- [ ] Player character dies on being touched
 		- [ ] SFX
 		- [ ] Art - explosion
-	- [ ] Player character dies on being shot
+	- [x] Player character dies on being shot
 	- [ ] Rotation animations while moving left and right
 
 - Enemy

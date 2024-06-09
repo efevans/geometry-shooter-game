@@ -17,13 +17,15 @@ func _ready() -> void:
 
 
 func on_shoot_timeout() -> void:
+	var player := get_tree().get_first_node_in_group("player") as Player
+	# Don't shoot at dead players
+	if !player or player.is_dead:
+		return
+
 	var bullet_instance := bullet_scene.instantiate() as Bullet
 	get_tree().root.add_child(bullet_instance)
 	bullet_instance.global_position = parent_firer.global_position + Vector2.DOWN * parent_distance_buffer
 
-	var player := get_tree().get_first_node_in_group("player") as Node2D
-	if !player:
-		return
 	var normalized_direction_to_player := (player.global_position - bullet_instance.global_position).normalized()
 	bullet_instance.set_direction(normalized_direction_to_player)
 
