@@ -41,12 +41,12 @@
 
 - Level 1
 	- [x] Scrolling background art for the main game
-	- [ ] Score that increments on killing an enemy
+	- [x] Score that increments on killing an enemy
 	- [x] Background music that begins when starting the level
 	- [x] Enemy Spawner
 		- [x] Defines a way to spawn a certain type of enemy at a set time at a location
 		- [ ] Spawns a boss at the end of the level
-	- [ ] Game Over screen after player dies
+	- [x] Game Over screen after player dies
 		- [ ] "You Lost" SFX
 	- [ ] Win screen after player wins
 		- [ ] "You Won" SFX
