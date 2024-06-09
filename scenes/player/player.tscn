@@ -133,6 +133,7 @@ amount = 32
 process_material = SubResource("ParticleProcessMaterial_a1415")
 texture = ExtResource("7_6nx4e")
 lifetime = 2.5
+one_shot = true
 explosiveness = 0.9
 
 [node name="SmallInnerExplosion" type="GPUParticles2D" parent="."]
@@ -141,6 +142,7 @@ emitting = false
 process_material = SubResource("ParticleProcessMaterial_54f37")
 texture = ExtResource("7_6nx4e")
 lifetime = 2.5
+one_shot = true
 explosiveness = 0.9
 
 [connection signal="timeout" from="FiringCooldown" to="." method="_on_firing_cooldown_timeout"]

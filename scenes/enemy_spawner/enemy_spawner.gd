@@ -37,7 +37,7 @@ func spawn_move_forward_enemy_at_position(position: int) -> void:
 func spawn_shoot_forward_enemy_at_position(position: int) -> void:
 	var enemy_instance := shoot_bullet_enemy_scene.instantiate() as Node2D
 	add_enemy_to_position_path(enemy_instance, position)
-	
+
 
 func add_enemy_to_position_path(enemy_instance: Node2D, position: int) -> void:
 	var path_follow_2d_instance := enemy_path_follow_2d.instantiate() as Node2D

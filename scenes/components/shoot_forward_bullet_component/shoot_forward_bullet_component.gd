@@ -27,7 +27,8 @@ func on_shoot_timeout() -> void:
 
 func fire_bullet() -> void:
 	var bullet_instance := bullet_scene.instantiate() as Bullet
-	get_tree().root.add_child(bullet_instance)
+	var bullet_layer := CommonObjects.get_bullet_layer()
+	bullet_layer.add_child(bullet_instance)
 
 	bullet_instance.set_direction(movement_direction)
 	if bullet_speed != -1:

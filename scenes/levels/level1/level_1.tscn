@@ -100,6 +100,8 @@ texture = SubResource("ViewportTexture_fqdol")
 
 [node name="DeathManager" parent="." instance=ExtResource("1_l8qs7")]
 
+[node name="Bullets" type="Node2D" parent="." groups=["bullet_layer"]]
+
 [node name="Enemies" type="Node" parent="." groups=["enemy_layer"]]
 
 [node name="DieOnHitEnemy" parent="Enemies" instance=ExtResource("5_fa3gg")]
@@ -174,5 +176,3 @@ autoplay = "pan_bg"
 material = SubResource("ShaderMaterial_ktutk")
 offset_right = 450.0
 offset_bottom = 800.0
-
-[node name="Enemies2" type="Node2D" parent="."]

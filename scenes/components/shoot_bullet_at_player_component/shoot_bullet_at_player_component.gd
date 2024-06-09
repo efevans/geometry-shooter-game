@@ -23,7 +23,8 @@ func on_shoot_timeout() -> void:
 		return
 
 	var bullet_instance := bullet_scene.instantiate() as Bullet
-	get_tree().root.add_child(bullet_instance)
+	var bullet_layer := CommonObjects.get_bullet_layer()
+	bullet_layer.add_child(bullet_instance)
 	bullet_instance.global_position = parent_firer.global_position + Vector2.DOWN * parent_distance_buffer
 
 	var normalized_direction_to_player := (player.global_position - bullet_instance.global_position).normalized()

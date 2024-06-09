@@ -25,19 +25,12 @@ var is_dead := false
 
 
 func _ready() -> void:
-	big_outer_explosion.emitting = false
-	big_outer_explosion.one_shot = true
-	small_inner_explosion.emitting = false
-	small_inner_explosion.one_shot = true
-
 	GameEvents.player_spawned.connect(on_player_spawn)
 
 
 func on_player_spawn() -> void:
 	is_dead = false
 	$HurtboxComponent.set_deferred("monitoring", true)
-	big_outer_explosion.emitting = false
-	small_inner_explosion.emitting = false
 	$Visuals.modulate = Color.WHITE
 
 
