@@ -14,14 +14,26 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2, 4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(2, 4, 9, 9.5, 10, 10.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [1],
 "method": &"spawn_basic_enemy_at_position"
 }, {
 "args": [1],
 "method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
 }]
 }
 tracks/1/type = "method"
@@ -31,11 +43,23 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(2.5, 9, 9.5, 10, 10.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
 "args": [1],
 "method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
 }]
 }
 tracks/2/type = "method"
@@ -89,6 +113,10 @@ point_count = 5
 [sub_resource type="Curve2D" id="Curve2D_kx2h0"]
 
 [sub_resource type="Curve2D" id="Curve2D_yhekv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 200, 0, 0, 0, 0, 30, 400, 0, 0, 0, 0, 480, 600, 0, 0, 0, 0, 30, 800, 0, 0, 0, 0, -54, 840)
+}
+point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_xy7ao"]
 _data = {
@@ -121,6 +149,10 @@ _data = {
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_y508c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -480, 200, 0, 0, 0, 0, -30, 400, 0, 0, 0, 0, -480, 600, 0, 0, 0, 0, -30, 800, 0, 0, 0, 0, 54, 840)
+}
+point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_3hgxp"]
 
@@ -132,9 +164,8 @@ _data = {
 }
 point_count = 5
 
-[node name="EnemySpawner" type="Node" node_paths=PackedStringArray("positions")]
+[node name="EnemySpawner" type="Node"]
 script = ExtResource("1_efano")
-positions = [NodePath("SpawnMarkers/1"), NodePath("SpawnMarkers/2"), NodePath("SpawnMarkers/3"), NodePath("SpawnMarkers/4"), NodePath("SpawnMarkers/5"), NodePath("SpawnMarkers/6"), NodePath("SpawnMarkers/7"), NodePath("SpawnMarkers/8"), NodePath("SpawnMarkers/9"), NodePath("SpawnMarkers/10"), NodePath("SpawnMarkers/11"), NodePath("SpawnMarkers/12"), NodePath("SpawnMarkers/13"), NodePath("SpawnMarkers/14"), NodePath("SpawnMarkers/15")]
 enemy_path_follow_2d = ExtResource("4_f4m7p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

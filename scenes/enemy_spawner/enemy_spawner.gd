@@ -16,11 +16,12 @@ extends Node
 # 4. In the AnimationPlayer, use one of the method call tracks to spawn the enemies at your time.
 #    Note: Any track can be used, the extra tracks exist to improve visibility of the timeline
 
-@export var positions: Array[Node2D] = []
+@onready var positions: Array[Node2D] = [$"SpawnMarkers/1", $"SpawnMarkers/2", $"SpawnMarkers/3", $"SpawnMarkers/4", $"SpawnMarkers/5", $"SpawnMarkers/6", $"SpawnMarkers/7", $"SpawnMarkers/8", $"SpawnMarkers/9", $"SpawnMarkers/10", $"SpawnMarkers/11", $"SpawnMarkers/12", $"SpawnMarkers/13", $"SpawnMarkers/14", $"SpawnMarkers/15"]
 @export var enemy_path_follow_2d: PackedScene
 
 var basic_enemy_scene: PackedScene = preload("res://scenes/enemy/enemy.tscn")
 var move_forward_enemy_scene: PackedScene = preload("res://scenes/enemy/move_forward_enemy/move_forward_enemy.tscn")
+var shoot_bullet_enemy_scene: PackedScene = preload("res://scenes/enemy/shoot_bullet_enemy/shoot_bullet_enemy.tscn")
 
 
 func spawn_basic_enemy_at_position(position: int) -> void:
@@ -32,6 +33,11 @@ func spawn_move_forward_enemy_at_position(position: int) -> void:
 	var enemy_instance := move_forward_enemy_scene.instantiate() as Node2D
 	move_enemy_to_position(enemy_instance, position)
 
+
+func spawn_shoot_forward_enemy_at_position(position: int) -> void:
+	var enemy_instance := shoot_bullet_enemy_scene.instantiate() as Node2D
+	add_enemy_to_position_path(enemy_instance, position)
+	
 
 func add_enemy_to_position_path(enemy_instance: Node2D, position: int) -> void:
 	var path_follow_2d_instance := enemy_path_follow_2d.instantiate() as Node2D
