@@ -50,7 +50,10 @@
 		- [ ] "You Lost" SFX
 	- [ ] Win screen after player wins
 		- [ ] "You Won" SFX
-	- [ ] BGM changes when boss spawns
+	- [ ] Transition for when boss spawns
+		- [ ] SFX
+		- [ ] Art
+		- [ ] Switch to Boss BGM
 
 - Menus
 	- [x] Main menu with a button that enters the main game
