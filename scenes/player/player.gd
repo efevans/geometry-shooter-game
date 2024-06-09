@@ -13,7 +13,7 @@ const FRICTION = MAX_VELOCITY / 10.0
 ## Friction, but only when the player is dead.
 const DEATH_FRICTION = FRICTION / 3.0
 
-
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var shoot_forward_bullet_component: ShootForwardBulletComponent = $ShootForwardBulletComponent
 @onready var firing_cooldown: Timer = $FiringCooldown
 
@@ -80,10 +80,10 @@ func _on_firing_cooldown_timeout() -> void:
 
 
 func _on_health_component_death() -> void:
+	$DeathSfx.play()
+	animation_player.play("death")
 	big_outer_explosion.emitting = true
 	small_inner_explosion.emitting = true
-	var fade_tween := create_tween()
-	fade_tween.tween_property($Visuals, "modulate", Color.TRANSPARENT, 0.7)
 	is_dead = true
 	# Don't get hurt by bullets after we're dead
 	$HurtboxComponent.set_deferred("monitoring", false)

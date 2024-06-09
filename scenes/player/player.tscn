@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cfsmh0c185db5"]
+[gd_scene load_steps=26 format=3 uid="uid://cfsmh0c185db5"]
 
 [ext_resource type="Texture2D" uid="uid://dlvw5580u4m8l" path="res://scenes/player/player.png" id="1_43pf7"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_x4sp7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://db02bok0g2fif" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="5_gdt6x"]
 [ext_resource type="PackedScene" uid="uid://bcnttpc4vi14i" path="res://scenes/components/health_component/health_component.tscn" id="6_8t2ql"]
 [ext_resource type="Texture2D" uid="uid://dav4mxo63xkga" path="res://scenes/player/player_death.png" id="7_6nx4e"]
+[ext_resource type="AudioStream" uid="uid://72brg6mg1e20" path="res://scenes/player/player_explosion.wav" id="8_5xiei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmw1y"]
 size = Vector2(15, 10)
@@ -81,6 +82,66 @@ anim_speed_max = 1.0
 anim_offset_min = 0.2
 anim_offset_max = 0.7
 
+[sub_resource type="Animation" id="Animation_rvn5y"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xb22t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mqckd"]
+_data = {
+"RESET": SubResource("Animation_xb22t"),
+"death": SubResource("Animation_rvn5y")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 4
 motion_mode = 1
@@ -144,6 +205,15 @@ texture = ExtResource("7_6nx4e")
 lifetime = 2.5
 one_shot = true
 explosiveness = 0.9
+
+[node name="DeathSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5xiei")
+volume_db = -18.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mqckd")
+}
 
 [connection signal="timeout" from="FiringCooldown" to="." method="_on_firing_cooldown_timeout"]
 [connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
