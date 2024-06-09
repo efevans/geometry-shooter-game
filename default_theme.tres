@@ -1,3 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://85cbqkfni7xy"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://85cbqkfni7xy"]
+
+[ext_resource type="FontFile" uid="uid://by5x58w3uvul8" path="res://assets/font/DotGothic16/DotGothic16-Regular.ttf" id="1_4w6to"]
 
 [resource]
+default_font = ExtResource("1_4w6to")
+UiButton/base_type = &"Button"
+UiButton/font_sizes/font_size = 32
