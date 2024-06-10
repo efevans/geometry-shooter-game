@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://du1h3ugy0xy51"]
+[gd_scene load_steps=24 format=3 uid="uid://du1h3ugy0xy51"]
 
 [ext_resource type="PackedScene" uid="uid://blnm6meamujn8" path="res://scenes/manager/death_manager/death_manager.tscn" id="1_l8qs7"]
 [ext_resource type="Script" path="res://scenes/levels/level1/level_1.gd" id="1_m6gct"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dtrfbcnau5sdg" path="res://scenes/level_ui/ui_layer.tscn" id="3_b1krp"]
 [ext_resource type="PackedScene" uid="uid://dlur44elqdbkg" path="res://scenes/enemy/die_on_hit_enemy/die_on_hit_enemy.tscn" id="5_fa3gg"]
 [ext_resource type="PackedScene" uid="uid://vx85fxunnudo" path="res://scenes/enemy/shoot_bullet_at_player_enemy/shoot_bullet_at_player_enemy.tscn" id="7_8qpsd"]
+[ext_resource type="Shader" path="res://scenes/levels/level1/ordered_dither.gdshader" id="10_x1nn0"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fqdol"]
 viewport_path = NodePath("BackgroundViewport")
@@ -87,6 +88,10 @@ _data = {
 shader = ExtResource("1_sy2q1")
 shader_parameter/strength = 3.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y3f17"]
+shader = ExtResource("10_x1nn0")
+shader_parameter/colorDivisions = 7.0
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_m6gct")
 
@@ -161,6 +166,7 @@ environment = SubResource("Environment_y3p6b")
 
 [node name="Camera3D" type="Camera3D" parent="BackgroundViewport"]
 transform = Transform3D(-2.1989e-08, -0.864257, 0.50305, -3.77779e-08, 0.50305, 0.864257, -1, 0, -4.37114e-08, 154.6, 0, 0)
+current = true
 far = 70.0
 
 [node name="BackgroundMesh" parent="BackgroundViewport" instance=ExtResource("2_ie35k")]
@@ -174,5 +180,10 @@ autoplay = "pan_bg"
 
 [node name="Blur" type="ColorRect" parent="BackgroundViewport"]
 material = SubResource("ShaderMaterial_ktutk")
+offset_right = 450.0
+offset_bottom = 800.0
+
+[node name="OrderedDither" type="ColorRect" parent="BackgroundViewport"]
+material = SubResource("ShaderMaterial_y3f17")
 offset_right = 450.0
 offset_bottom = 800.0

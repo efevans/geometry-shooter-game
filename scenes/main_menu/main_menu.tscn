@@ -1,9 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfe0po53yn2p6"]
+[gd_scene load_steps=3 format=3 uid="uid://cfe0po53yn2p6"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_xhwht"]
+[ext_resource type="Texture2D" uid="uid://c1f62gg03o06b" path="res://scenes/main_menu/backgroundv1.png" id="2_5qv8h"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_xhwht")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 450.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5qv8h")
 
 [node name="Title" type="Control" parent="."]
 custom_minimum_size = Vector2(450, 800)
