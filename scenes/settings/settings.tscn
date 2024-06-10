@@ -21,39 +21,72 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
 layout_mode = 2
+theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer"]
+[node name="VolumeSection" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/VolumeSection"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Volume"
 
-[node name="MainVolume" parent="Control/CenterContainer/VBoxContainer" instance=ExtResource("1_dlgjw")]
+[node name="MainVolume" parent="Control/CenterContainer/VBoxContainer/VolumeSection" instance=ExtResource("1_dlgjw")]
 unique_name_in_owner = true
 layout_mode = 2
 label_name = "Main"
 
-[node name="SfxVolume" parent="Control/CenterContainer/VBoxContainer" instance=ExtResource("1_dlgjw")]
+[node name="tlLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/VolumeSection/MainVolume"]
+visible = false
+layout_mode = 2
+text = "Main"
+
+[node name="SfxVolume" parent="Control/CenterContainer/VBoxContainer/VolumeSection" instance=ExtResource("1_dlgjw")]
 unique_name_in_owner = true
 layout_mode = 2
 label_name = "SFX"
 
-[node name="MusicVolume" parent="Control/CenterContainer/VBoxContainer" instance=ExtResource("1_dlgjw")]
+[node name="tlLabel2" type="Label" parent="Control/CenterContainer/VBoxContainer/VolumeSection/SfxVolume"]
+visible = false
+layout_mode = 2
+text = "SFX"
+
+[node name="MusicVolume" parent="Control/CenterContainer/VBoxContainer/VolumeSection" instance=ExtResource("1_dlgjw")]
 unique_name_in_owner = true
 layout_mode = 2
 label_name = "Music"
 
-[node name="Spacer" type="Control" parent="Control/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
+[node name="tlLabel2" type="Label" parent="Control/CenterContainer/VBoxContainer/VolumeSection/MusicVolume"]
+visible = false
 layout_mode = 2
+text = "Music"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LocaleLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Locale"
+
+[node name="LocaleSelector" type="OptionButton" parent="Control/CenterContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "日本語"
+popup/item_1/id = 1
 
 [node name="BackButton" type="Button" parent="Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back to Main Menu"
 
-[connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/MainVolume" to="." method="_on_main_volume_value_change"]
-[connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/MainVolume" to="." method="flush_settings_to_disk"]
-[connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/SfxVolume" to="." method="_on_sfx_volume_value_change"]
-[connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/SfxVolume" to="." method="flush_settings_to_disk"]
-[connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_change"]
-[connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/MusicVolume" to="." method="flush_settings_to_disk"]
+[connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/VolumeSection/MainVolume" to="." method="_on_main_volume_value_change"]
+[connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/VolumeSection/MainVolume" to="." method="flush_settings_to_disk"]
+[connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/VolumeSection/SfxVolume" to="." method="_on_sfx_volume_value_change"]
+[connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/VolumeSection/SfxVolume" to="." method="flush_settings_to_disk"]
+[connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/VolumeSection/MusicVolume" to="." method="_on_music_volume_value_change"]
+[connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/VolumeSection/MusicVolume" to="." method="flush_settings_to_disk"]
+[connection signal="item_selected" from="Control/CenterContainer/VBoxContainer/VBoxContainer/LocaleSelector" to="." method="_on_locale_selector_item_selected"]
 [connection signal="pressed" from="Control/CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

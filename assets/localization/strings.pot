@@ -1,0 +1,65 @@
+# LANGUAGE translation for geometry-shooter-game for the following files:
+# res://scenes/main_menu/main_menu.tscn
+# res://scenes/settings/settings.tscn
+# res://scenes/level_ui/ui_layer.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: geometry-shooter-game\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: scenes/main_menu/main_menu.tscn
+msgid ""
+"[wave amp=25 freq=7][center]Geometry\n"
+"Shooter\n"
+"Game[/center][/wave]"
+msgstr ""
+
+#: scenes/main_menu/main_menu.tscn
+msgid "Play"
+msgstr ""
+
+#: scenes/main_menu/main_menu.tscn
+msgid "High Scores"
+msgstr ""
+
+#: scenes/main_menu/main_menu.tscn
+msgid "Settings"
+msgstr ""
+
+#: scenes/main_menu/main_menu.tscn
+msgid "Quit"
+msgstr ""
+
+#: scenes/settings/settings.tscn
+msgid "Volume"
+msgstr ""
+
+#: scenes/settings/settings.tscn
+msgid "Main"
+msgstr ""
+
+#: scenes/settings/settings.tscn
+msgid "SFX"
+msgstr ""
+
+#: scenes/settings/settings.tscn
+msgid "Music"
+msgstr ""
+
+#: scenes/settings/settings.tscn
+msgid "Back to Main Menu"
+msgstr ""
+
+#: scenes/level_ui/ui_layer.tscn
+msgid "Respawning..."
+msgstr ""
+
+#: scenes/level_ui/ui_layer.tscn
+msgid "Game Over!"
+msgstr ""
