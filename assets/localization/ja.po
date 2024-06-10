@@ -35,11 +35,11 @@ msgstr "プレイ"
 
 #: scenes/main_menu/main_menu.tscn
 msgid "High Scores"
-msgstr "セッティング"
+msgstr "ハイスコア"
 
 #: scenes/main_menu/main_menu.tscn
 msgid "Settings"
-msgstr "ハイスコア"
+msgstr "セッティング"
 
 #: scenes/main_menu/main_menu.tscn
 msgid "Quit"
