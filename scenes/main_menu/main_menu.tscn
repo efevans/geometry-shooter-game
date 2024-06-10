@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfe0po53yn2p6"]
+[gd_scene load_steps=4 format=3 uid="uid://cfe0po53yn2p6"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_xhwht"]
 [ext_resource type="Texture2D" uid="uid://c1f62gg03o06b" path="res://scenes/main_menu/backgroundv1.png" id="2_5qv8h"]
+[ext_resource type="FontFile" uid="uid://b825hsqf1m0al" path="res://assets/font/Rampart_One/RampartOne-Regular.ttf" id="2_l5bu4"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_xhwht")
@@ -23,18 +24,19 @@ anchors_preset = 0
 offset_right = 450.0
 offset_bottom = 800.0
 
-[node name="Label" type="Label" parent="Title"]
+[node name="Label" type="RichTextLabel" parent="Title"]
+custom_minimum_size = Vector2(0, 350)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 64
-text = "Geometry
+theme_override_fonts/normal_font = ExtResource("2_l5bu4")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[wave amp=25 freq=7][center]Geometry
 Shooter
-Game"
-horizontal_alignment = 1
-vertical_alignment = 1
+Game[/center][/wave]"
 
 [node name="Buttons" type="Control" parent="."]
 custom_minimum_size = Vector2(450, 800)
@@ -60,11 +62,13 @@ theme_override_constants/separation = 16
 [node name="PlayButton" type="Button" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"UiButton"
 text = "Play"
 
 [node name="HighScoreButton" type="Button" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"UiButton"
 text = "High Scores"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer"]
@@ -74,11 +78,13 @@ theme_override_constants/separation = 16
 [node name="SettingsButton" type="Button" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"UiButton"
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="Buttons/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"UiButton"
 text = "Quit"
 
 [connection signal="pressed" from="Buttons/MarginContainer/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
