@@ -35,3 +35,11 @@ signal game_over()
 
 func emit_game_over() -> void:
 	game_over.emit()
+
+
+## A new score was set
+## This should be added to the high score list if it qualifies
+signal score_set(score: int)
+
+func emit_score_set(score: int) -> void:
+	score_set.emit(score)

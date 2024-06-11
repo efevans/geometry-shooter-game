@@ -18,7 +18,7 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_high_score_button_pressed() -> void:
-	print("TODO: Switch to high score scene")
+	get_tree().change_scene_to_file("res://scenes/high_score/high_score.tscn")
 
 
 func _on_settings_button_pressed() -> void:

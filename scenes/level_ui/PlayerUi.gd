@@ -30,6 +30,7 @@ func on_player_died() -> void:
 
 	if lives_remaining < 0:
 		GameEvents.emit_game_over()
+		GameEvents.emit_score_set(score)
 	else:
 		# index 0 is always safe to get (until we ran out of lives)
 		$RemainingLives.get_child(0).queue_free()
