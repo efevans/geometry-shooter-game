@@ -63,6 +63,6 @@
 		- [ ] SFX
 	- [ ] High Scores page
 	- [x] Background music that begins when loading the main menu
-	- [ ] Themeing
+	- [x] Themeing
 		- [x] Font
-		- [ ] Button styling
+		- [x] Button styling
