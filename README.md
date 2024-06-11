@@ -61,7 +61,7 @@
 	- [x] Options page
 		- [x] Volume sliders
 		- [ ] SFX
-	- [ ] High Scores page
+	- [x] High Scores page
 	- [x] Background music that begins when loading the main menu
 	- [x] Themeing
 		- [x] Font
