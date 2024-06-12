@@ -57,10 +57,10 @@
 
 - Menus
 	- [x] Main menu with a button that enters the main game
-		- [ ] Button SFX
+		- [x] Button SFX
 	- [x] Options page
 		- [x] Volume sliders
-		- [ ] SFX
+		- [x] SFX
 	- [x] High Scores page
 	- [x] Background music that begins when loading the main menu
 	- [x] Themeing
