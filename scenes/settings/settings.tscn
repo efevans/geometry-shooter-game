@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg2tfdjbl1vd3"]
+[gd_scene load_steps=5 format=3 uid="uid://bg2tfdjbl1vd3"]
 
 [ext_resource type="PackedScene" uid="uid://d26x7beb3l6aq" path="res://scenes/ui/options_slider/options_slider.tscn" id="1_dlgjw"]
 [ext_resource type="Script" path="res://scenes/settings/settings.gd" id="1_g5kr7"]
 [ext_resource type="AudioStream" uid="uid://do7wxdn21uvrx" path="res://scenes/main_menu/button_click.wav" id="3_yi7ue"]
+[ext_resource type="AudioStream" uid="uid://hp7nhscw7uff" path="res://scenes/player/player_shoot.wav" id="4_7lkjf"]
 
 [node name="Settings" type="Node2D"]
 script = ExtResource("1_g5kr7")
@@ -85,6 +86,16 @@ text = "Back to Main Menu"
 
 [node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_yi7ue")
+bus = &"SFX"
+
+[node name="PlayerShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7lkjf")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="PlayerShootTimer" type="Timer" parent="PlayerShoot"]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/VolumeSection/MainVolume" to="." method="_on_main_volume_value_change"]
 [connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/VolumeSection/MainVolume" to="." method="flush_settings_to_disk"]

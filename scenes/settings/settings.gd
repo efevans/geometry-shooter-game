@@ -30,6 +30,9 @@ func _on_main_volume_value_change(value: float) -> void:
 
 
 func _on_sfx_volume_value_change(value: float) -> void:
+	if $PlayerShoot/PlayerShootTimer.is_stopped():
+		$PlayerShoot/PlayerShootTimer.start()
+		$PlayerShoot.play()
 	AudioServer.set_bus_volume_db(AudioConfig.SFX_BUS_INDEX, linear_to_db(value / 100.0))
 
 
