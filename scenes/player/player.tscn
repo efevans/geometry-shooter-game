@@ -209,6 +209,7 @@ explosiveness = 0.9
 [node name="DeathSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_5xiei")
 volume_db = -18.0
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
