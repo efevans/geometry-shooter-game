@@ -16,6 +16,8 @@ extends Node
 # 4. In the AnimationPlayer, use one of the method call tracks to spawn the enemies at your time.
 #    Note: Any track can be used, the extra tracks exist to improve visibility of the timeline
 
+signal end_spawn
+
 @onready var positions: Array[Node2D] = [$"SpawnMarkers/1", $"SpawnMarkers/2", $"SpawnMarkers/3", $"SpawnMarkers/4", $"SpawnMarkers/5", $"SpawnMarkers/6", $"SpawnMarkers/7", $"SpawnMarkers/8", $"SpawnMarkers/9", $"SpawnMarkers/10", $"SpawnMarkers/11", $"SpawnMarkers/12", $"SpawnMarkers/13", $"SpawnMarkers/14", $"SpawnMarkers/15"]
 @export var enemy_path_follow_2d: PackedScene
 
@@ -60,3 +62,6 @@ func move_enemy_to_position(enemy_instance: Node2D, position: int) -> void:
 
 func get_position_node(position: int) -> Node2D:
 	return positions[position - 1]
+	
+func finish_spawning() -> void:
+	end_spawn.emit()

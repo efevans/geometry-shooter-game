@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://du1h3ugy0xy51"]
+[gd_scene load_steps=25 format=3 uid="uid://du1h3ugy0xy51"]
 
 [ext_resource type="PackedScene" uid="uid://blnm6meamujn8" path="res://scenes/manager/death_manager/death_manager.tscn" id="1_l8qs7"]
 [ext_resource type="Script" path="res://scenes/levels/level1/level_1.gd" id="1_m6gct"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://scenes/levels/level1/blur.gdshader" id="1_sy2q1"]
 [ext_resource type="PackedScene" uid="uid://cfsmh0c185db5" path="res://scenes/player/player.tscn" id="1_wrtrg"]
 [ext_resource type="PackedScene" uid="uid://bsyhvv62vh4ej" path="res://scenes/levels/level1/background/geometry_background.tscn" id="2_ie35k"]
+[ext_resource type="PackedScene" uid="uid://df1vxvexth73u" path="res://scenes/boss_transition/boss_transition.tscn" id="2_x532k"]
 [ext_resource type="PackedScene" uid="uid://dtrfbcnau5sdg" path="res://scenes/level_ui/ui_layer.tscn" id="3_b1krp"]
 [ext_resource type="PackedScene" uid="uid://dlur44elqdbkg" path="res://scenes/enemy/die_on_hit_enemy/die_on_hit_enemy.tscn" id="5_fa3gg"]
 [ext_resource type="PackedScene" uid="uid://vx85fxunnudo" path="res://scenes/enemy/shoot_bullet_at_player_enemy/shoot_bullet_at_player_enemy.tscn" id="7_8qpsd"]
@@ -96,6 +97,9 @@ shader_parameter/colorDivisions = 7.0
 script = ExtResource("1_m6gct")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_n3u6k")]
+
+[node name="BossTransition" parent="." instance=ExtResource("2_x532k")]
+visible = false
 
 [node name="UiLayer" parent="." instance=ExtResource("3_b1krp")]
 

@@ -4,7 +4,8 @@ enum SONG {
 	MENU = 0,
 	MENU_INTRO = 1,
 	LEVEL1 = 2,
-	BOSS1 = 3
+	BOSS1 = 3,
+	BOSS_INTRO = 4
 }
 
 
@@ -15,7 +16,8 @@ func _ready() -> void:
 		preload("res://scenes/main_menu/menu.mp3"),
 		preload("res://scenes/main_menu/menu_intro.mp3"),
 		preload("res://scenes/levels/level1/level_1.mp3"),
-		preload("res://scenes/levels/level1/level_1_boss.mp3")
+		preload("res://scenes/levels/level1/level_1_boss.mp3"),
+		preload("res://scenes/boss_transition/boss_intro.mp3")
 	])
 
 
