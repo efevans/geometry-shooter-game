@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs5ljxi0acd3u"]
+[gd_scene load_steps=3 format=3 uid="uid://bs5ljxi0acd3u"]
 
 [ext_resource type="Script" path="res://scenes/high_score/high_score.gd" id="1_caos1"]
+[ext_resource type="AudioStream" uid="uid://do7wxdn21uvrx" path="res://scenes/main_menu/button_click.wav" id="2_n0t4t"]
 
 [node name="HighScore" type="Node"]
 script = ExtResource("1_caos1")
@@ -18,30 +19,82 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "High Scores"
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ScoresVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ScoresVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScoresVBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/ScoresVBoxContainer"]
 layout_mode = 2
 text = "10300
 "
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/ScoresVBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/ScoresVBoxContainer"]
 layout_mode = 2
 text = "10300
 "
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/ScoresVBoxContainer"]
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/ScoresVBoxContainer"]
 layout_mode = 2
 text = "10300
 "
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/ScoresVBoxContainer"]
+layout_mode = 2
+text = "10300
+"
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/ScoresVBoxContainer"]
+layout_mode = 2
+text = "10300
+"
+
+[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/ScoresVBoxContainer"]
+layout_mode = 2
+text = "10300
+"
+
+[node name="Label7" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/ScoresVBoxContainer"]
+layout_mode = 2
+text = "10300
+"
+
+[node name="Label8" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/ScoresVBoxContainer"]
+layout_mode = 2
+text = "10300
+"
+
+[node name="Label9" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/ScoresVBoxContainer"]
+layout_mode = 2
+text = "10300
+"
+
+[node name="Label10" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/ScoresVBoxContainer"]
+layout_mode = 2
+text = "10300
+"
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+text = "Back to Main Menu"
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="MarginContainer"]
+unique_name_in_owner = true
+stream = ExtResource("2_n0t4t")
+bus = &"SFX"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
