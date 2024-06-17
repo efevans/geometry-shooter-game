@@ -8,7 +8,7 @@
 		- [ ] SFX
 		- [ ] Art - explosion
 	- [x] Player character dies on being shot
-	- [ ] Rotation animations while moving left and right
+	- [x] Rotation animations while moving left and right
 
 - Enemy
 	- [x] Enemy type that moves straight forward

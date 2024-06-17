@@ -148,9 +148,13 @@ motion_mode = 1
 script = ExtResource("1_x4sp7")
 
 [node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("1_43pf7")
+
+[node name="BulletShootsFromHere" type="Marker2D" parent="Visuals"]
+position = Vector2(0, -14)
 
 [node name="BodyCollider1" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
@@ -168,8 +172,7 @@ shape = SubResource("RectangleShape2D_pjcpm")
 shoot_timeout = -1.0
 movement_direction = Vector2(0, -1)
 bullet_speed = 450.0
-parent_firer = NodePath("..")
-parent_distance_buffer = 1.5
+parent_firer = NodePath("../Visuals/BulletShootsFromHere")
 parent_is_player = true
 stream = ExtResource("4_vnuie")
 

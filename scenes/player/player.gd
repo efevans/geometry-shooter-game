@@ -13,15 +13,22 @@ const FRICTION = MAX_VELOCITY / 10.0
 ## Friction, but only when the player is dead.
 const DEATH_FRICTION = FRICTION / 3.0
 
+const MAX_HORIZONTAL_LEAN = 25.
+const HORIZONTAL_LEAN_ROTATIONAL_VELOCITY = 6.
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var shoot_forward_bullet_component: ShootForwardBulletComponent = $ShootForwardBulletComponent
 @onready var firing_cooldown: Timer = $FiringCooldown
+@onready var visuals: Node2D = %Visuals
 
 @onready var big_outer_explosion: GPUParticles2D = $BigOuterExplosion
 @onready var small_inner_explosion: GPUParticles2D = $SmallInnerExplosion
 
 
 var is_dead := false
+var last_direction: Vector2 = Vector2.ZERO
+
+var sprite_rotation_tween: Tween = null
 
 
 func _ready() -> void:
@@ -32,6 +39,17 @@ func on_player_spawn() -> void:
 	is_dead = false
 	$HurtboxComponent.set_deferred("monitoring", true)
 	$Visuals.modulate = Color.WHITE
+
+
+func _process(delta: float) -> void:
+	if last_direction.x == 0:
+		visuals.rotation = move_toward(visuals.rotation,\
+			0,\
+			HORIZONTAL_LEAN_ROTATIONAL_VELOCITY * delta)
+	else:
+		visuals.rotation = move_toward(visuals.rotation,\
+			deg_to_rad(MAX_HORIZONTAL_LEAN) * sign(last_direction.x), \
+			HORIZONTAL_LEAN_ROTATIONAL_VELOCITY * delta)
 
 
 func _physics_process(delta: float) -> void:
@@ -55,8 +73,9 @@ func _physics_process(delta: float) -> void:
 		velocity += direction * ACCELERATION
 		velocity.x = clampf(velocity.x, -MAX_VELOCITY, MAX_VELOCITY)
 		velocity.y = clampf(velocity.y, -MAX_VELOCITY, MAX_VELOCITY)
-
+	
 	move_and_slide()
+	last_direction = direction
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
