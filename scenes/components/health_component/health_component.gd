@@ -1,6 +1,7 @@
 extends Node
 class_name HealthComponent
 
+signal health_changed(curr: int, total: int)
 signal death
 
 @export var skip_queue_free := false
@@ -18,6 +19,7 @@ func hurt(damage: int) -> void:
 		return
 
 	current_health -= damage
+	health_changed.emit(current_health, max_health)
 	if current_health <= 0:
 		death.emit()
 		if not skip_queue_free:

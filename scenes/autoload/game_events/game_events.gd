@@ -43,3 +43,11 @@ signal score_set(score: int)
 
 func emit_score_set(score: int) -> void:
 	score_set.emit(score)
+
+
+## The boss of the level spawned
+## This should prepare the game UI to display data about the boss such as HP
+signal boss_spawned(boss: Node2D)
+
+func emit_boss_spawned(boss: Node2D) -> void:
+	boss_spawned.emit(boss)

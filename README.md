@@ -27,17 +27,17 @@
 		- [ ] Art - body
 
 - Boss
-	- [ ] Boss that takes a certain number of hits before dying
+	- [x] Boss that takes a certain number of hits before dying
 		- [ ] SFX - getting hit
-		- [ ] Art
-	- [ ] Shoots straights forward
+		- [x] Art
+	- [x] Shoots straights forward
+		- [x] SFX
+		- [x] Art
+	- [x] Shoots towards the player
 		- [ ] SFX
-		- [ ] Art
-	- [ ] Shoots towards the player
-		- [ ] SFX
-		- [ ] Art
-	- [ ] Moves back and forth
-	- [ ] HP bar to show remaining HP
+		- [x] Art
+	- [x] Moves back and forth
+	- [x] HP bar to show remaining HP
 
 - Level 1
 	- [x] Scrolling background art for the main game

@@ -89,11 +89,14 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1, 3.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1, 2, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [11],
 "method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [],
+"method": &"spawn_boss"
 }, {
 "args": [1],
 "method": &"spawn_basic_enemy_at_position"

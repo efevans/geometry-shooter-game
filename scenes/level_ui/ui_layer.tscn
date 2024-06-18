@@ -1,8 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtrfbcnau5sdg"]
+[gd_scene load_steps=11 format=3 uid="uid://dtrfbcnau5sdg"]
 
 [ext_resource type="Script" path="res://scenes/level_ui/PlayerUi.gd" id="1_0xnue"]
+[ext_resource type="Script" path="res://scenes/level_ui/EnemyUi.gd" id="1_4aams"]
 [ext_resource type="Texture2D" uid="uid://dlvw5580u4m8l" path="res://scenes/player/player.png" id="1_wbw75"]
 [ext_resource type="Script" path="res://scenes/level_ui/MainAreaUi.gd" id="3_odk7j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bobt4"]
+bg_color = Color(0.303912, 0.0676702, 0.147813, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18qnl"]
+bg_color = Color(0.95, 0.0475, 0.0475, 1)
 
 [sub_resource type="Animation" id="Animation_02rqu"]
 length = 0.001
@@ -154,17 +161,67 @@ anchors_preset = 0
 offset_right = 450.0
 offset_bottom = 800.0
 
-[node name="TEMP_BossUi" type="ColorRect" parent="LevelUi"]
-custom_minimum_size = Vector2(450, 75)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.99, 0.3861, 0.96987, 0.235294)
+[node name="EnemyUi" type="Control" parent="LevelUi"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_4aams")
 
-[node name="This will be replaced with boss UI" type="Control" parent="LevelUi/TEMP_BossUi"]
+[node name="ColorRect" type="ColorRect" parent="LevelUi/EnemyUi"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.380392, 0.168627, 0.180392, 0.666667)
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelUi/EnemyUi"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 4
+
+[node name="BossNameLabel" type="Label" parent="LevelUi/EnemyUi/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"HeaderSmall"
+text = "THE PENTAGON"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="LevelUi/EnemyUi/MarginContainer"]
+layout_mode = 2
+
+[node name="BossHealthControl" type="Control" parent="LevelUi/EnemyUi/MarginContainer/Control"]
+unique_name_in_owner = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="BossHealthBar" type="ProgressBar" parent="LevelUi/EnemyUi/MarginContainer/Control/BossHealthControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+offset_top = 30.0
+offset_right = 418.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_bobt4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_18qnl")
+max_value = 1.0
+value = 0.78
+show_percentage = false
 
 [node name="PlayerUi" type="Control" parent="LevelUi"]
 anchors_preset = 0

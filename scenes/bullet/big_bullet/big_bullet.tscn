@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpp6dx2vq7byg"]
+
+[ext_resource type="Texture2D" uid="uid://de54wfet062ey" path="res://scenes/bullet/big_bullet/big_bullet.png" id="1_8mgsm"]
+[ext_resource type="Script" path="res://scenes/bullet/bullet.gd" id="1_l7klg"]
+[ext_resource type="PackedScene" uid="uid://bj2gsm2yk3ykv" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="2_ymu82"]
+[ext_resource type="PackedScene" uid="uid://dk7csm1d6fg0u" path="res://scenes/components/move_in_direction_component/move_in_direction_component.tscn" id="3_rgcbl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_usapl"]
+radius = 5.0
+
+[node name="BigBullet" type="Node2D" node_paths=PackedStringArray("movement_component")]
+script = ExtResource("1_l7klg")
+movement_component = NodePath("MoveInDirectionComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8mgsm")
+
+[node name="MoveInDirectionComponent" parent="." instance=ExtResource("3_rgcbl")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_ymu82")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_usapl")

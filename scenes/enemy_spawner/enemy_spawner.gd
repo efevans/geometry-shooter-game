@@ -26,6 +26,9 @@ var move_forward_enemy_scene: PackedScene = preload("res://scenes/enemy/move_for
 var shoot_bullet_enemy_scene: PackedScene = preload("res://scenes/enemy/shoot_bullet_enemy/shoot_bullet_enemy.tscn")
 
 
+var boss_scene: PackedScene = preload("res://scenes/boss/boss.tscn")
+
+
 func spawn_basic_enemy_at_position(position: int) -> void:
 	var enemy_instance := basic_enemy_scene.instantiate() as Node2D
 	add_enemy_to_position_path(enemy_instance, position)
@@ -39,6 +42,13 @@ func spawn_move_forward_enemy_at_position(position: int) -> void:
 func spawn_shoot_forward_enemy_at_position(position: int) -> void:
 	var enemy_instance := shoot_bullet_enemy_scene.instantiate() as Node2D
 	add_enemy_to_position_path(enemy_instance, position)
+	
+	
+func spawn_boss() -> void:
+	var boss_instance := boss_scene.instantiate() as Node2D
+	add_enemy_to_enemy_layer(boss_instance)
+	boss_instance.global_position = Vector2(200,  200)
+	GameEvents.boss_spawned.emit(boss_instance)
 
 
 func add_enemy_to_position_path(enemy_instance: Node2D, position: int) -> void:
@@ -51,13 +61,17 @@ func add_enemy_to_position_path(enemy_instance: Node2D, position: int) -> void:
 
 
 func move_enemy_to_position(enemy_instance: Node2D, position: int) -> void:
+	add_enemy_to_enemy_layer(enemy_instance)
+
+	var position_node := get_position_node(position) as Node2D
+	enemy_instance.global_position = position_node.global_position
+
+
+func add_enemy_to_enemy_layer(enemy_instance: Node2D) -> void:
 	var enemy_layer := CommonObjects.get_enemy_layer()
 	if !enemy_layer:
 		enemy_layer = get_tree().root
 	enemy_layer.add_child(enemy_instance)
-
-	var position_node := get_position_node(position) as Node2D
-	enemy_instance.global_position = position_node.global_position
 
 
 func get_position_node(position: int) -> Node2D:
