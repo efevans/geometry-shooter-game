@@ -5,8 +5,8 @@ var speed: float = 100.0
 
 func _ready() -> void:
 	get_child_speed()
-	
-	
+
+
 func _physics_process(delta: float) -> void:
 	progress += speed * delta
 

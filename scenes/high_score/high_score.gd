@@ -8,13 +8,13 @@ extends Node
 func _ready() -> void:
 	back_button.grab_focus.call_deferred()
 	set_scores()
-	
-	
+
+
 func set_scores() -> void:
 	for existing_score: Node in scores_v_box_container.get_children():
 		scores_v_box_container.remove_child(existing_score)
 		existing_score.queue_free()
-		
+
 	for score : int in HighScoreManager.scores:
 		var score_label := Label.new()
 		score_label.text = str(score)

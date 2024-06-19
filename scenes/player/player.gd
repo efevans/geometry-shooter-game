@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		velocity += direction * ACCELERATION
 		velocity.x = clampf(velocity.x, -MAX_VELOCITY, MAX_VELOCITY)
 		velocity.y = clampf(velocity.y, -MAX_VELOCITY, MAX_VELOCITY)
-	
+
 	move_and_slide()
 	last_direction = direction
 

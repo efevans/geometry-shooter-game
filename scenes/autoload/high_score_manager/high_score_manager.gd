@@ -13,7 +13,7 @@ func _ready() -> void:
 
 ## Load local high scores
 ## Scores are stored as an ordered array of 64 bit integers
-## e.g. 
+## e.g.
 ## [ 1000, 950, 800, ... ]
 func load_scores_from_disk() -> void:
 	var score_file := FileAccess.open(SCORE_FILENAME, FileAccess.READ)
@@ -35,7 +35,7 @@ func flush_scores_to_disk() -> void:
 
 	var save_data_str := JSON.stringify(scores)
 	score_file.store_line(save_data_str)
-	
+
 
 func add_high_score(new_score: int) -> void:
 	## Note: The scores array is a fixed size after calling load_scores_from_disk(),
@@ -45,11 +45,11 @@ func add_high_score(new_score: int) -> void:
 			## push all worse scores back one, leaving the worst score off
 			for j in range(scores.size() - 2, i - 1, -1):
 				scores[j + 1] = scores[j]
-			
+
 			## add the new score at i
 			scores[i] = new_score
 			break
-	
+
 
 func on_score_set(score: int) -> void:
 	add_high_score(score)

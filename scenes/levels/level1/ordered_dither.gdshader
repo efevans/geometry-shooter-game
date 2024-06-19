@@ -19,7 +19,7 @@ const float BAYER_MATRIX[64] = {
     //vec4(00.0/16.0, -4.0/16.0, 03.0/16.0, -1.0/16.0),
     //vec4(-6.0/16.0, 06.0/16.0, -7.0/16.0, 05.0/16.0),
     //vec4(02.0/16.0, -2.0/16.0, 01.0/16.0, -3.0/16.0));
-	
+
 const vec2 ditheringSizeVec2 = vec2(8, 8);
 
 vec3 quantize(vec3 color, float bits) {
@@ -37,9 +37,9 @@ void fragment() {
 
 	vec2 bayerModulo = mod(xy, ditheringSizeVec2);
 	float offset = BAYER_MATRIX[int(bayerModulo.x) + (int(bayerModulo.y) * 8)];
-	
+
 	float adjustedOffset = offset / colorDivisions;
 	vec3 offsetScreenColor = screenColor.rgb + vec3(adjustedOffset, adjustedOffset, adjustedOffset);
-	
+
 	COLOR.rgb = quantize(offsetScreenColor, colorDivisions);
 }

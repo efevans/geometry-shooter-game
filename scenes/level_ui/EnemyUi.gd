@@ -25,10 +25,10 @@ func setup_ui() -> void:
 	slide_in_tween.tween_property(self, "custom_minimum_size", Vector2(0, MAX_WIDTH), SLIDE_IN_DURATION)\
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	await slide_in_tween.finished
-	
+
 	var boss_name_tween := create_tween()
 	boss_name_tween.tween_property(boss_name_label, "modulate:a", 1, 1)
-	
+
 	var inflate_health_bar_tween := create_tween()
 	inflate_health_bar_tween.tween_property(boss_health_bar, "scale:x", 0, .01)
 	inflate_health_bar_tween.tween_property(boss_health_bar, "modulate:a", 1, .01)
@@ -47,10 +47,10 @@ func on_boss_spawned(boss: Node2D) -> void:
 
 func on_boss_health_changed(curr: int, total: int) -> void:
 	boss_health_bar.value = float(curr) / total
-	if health_shake_tween != null:
+	if health_shake_tween != null and health_shake_tween.is_running():
 		print("tween running")
-	
-	
+		return
+
 	health_shake_tween = create_tween()
 	health_shake_tween.tween_property(boss_health_control, "position:x", 4, .05)
 	health_shake_tween.tween_property(boss_health_control, "position:x", -2, .05)

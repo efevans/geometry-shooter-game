@@ -16,15 +16,15 @@ vec4 blur_size(sampler2D tex,vec2 fragCoord, vec2 pixelSize) {
 
     // Sum the pixels colors
     for(int x=x_min; x <= x_max; x++) {
-        for(int y = y_min; y <= y_max; y++) {           
+        for(int y = y_min; y <= y_max; y++) {
             color += texture(tex, vec2(float(x), float(y)) * pixelSize);
             count++;
         }
     }
-    
+
     // Divide the color by the number of colors you summed up
     color /= float(count);
-    
+
     return color;
 }
 
