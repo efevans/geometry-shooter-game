@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://vx85fxunnudo"]
+[gd_scene load_steps=11 format=3 uid="uid://vx85fxunnudo"]
 
 [ext_resource type="Texture2D" uid="uid://cqqx0fnucs4sd" path="res://scenes/enemy/enemy.png" id="1_efd30"]
 [ext_resource type="PackedScene" uid="uid://oqmy2dbyi8vq" path="res://scenes/components/shoot_bullet_at_player_component/shoot_bullet_at_player_component.tscn" id="2_nkjls"]
 [ext_resource type="AudioStream" uid="uid://oo3lce0q34yh" path="res://scenes/enemy/enemy_shoot.wav" id="3_jwnlt"]
+[ext_resource type="PackedScene" uid="uid://bcnttpc4vi14i" path="res://scenes/components/health_component/health_component.tscn" id="4_8wbrj"]
+[ext_resource type="PackedScene" uid="uid://db02bok0g2fif" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="5_y2qjh"]
+[ext_resource type="PackedScene" uid="uid://bj2gsm2yk3ykv" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="6_gbafq"]
+[ext_resource type="PackedScene" uid="uid://bfus2jct2amu6" path="res://scenes/components/death_component/death_component.tscn" id="7_h47ui"]
+[ext_resource type="AudioStream" uid="uid://7a5uwohbgavl" path="res://scenes/enemy/enemy_explosion.wav" id="8_xw478"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vbfh3"]
+radius = 19.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j5lnr"]
+radius = 13.0384
 
 [node name="ShootBulletAtPlayerEnemy" type="Node2D"]
 
@@ -13,3 +24,23 @@ texture = ExtResource("1_efd30")
 parent_firer = NodePath("..")
 parent_distance_buffer = 12.0
 stream = ExtResource("3_jwnlt")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_8wbrj")]
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_y2qjh")]
+collision_mask = 1
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_vbfh3")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("6_gbafq")]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_j5lnr")
+
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_h47ui")]
+health_component = NodePath("../HealthComponent")
+stream = ExtResource("8_xw478")

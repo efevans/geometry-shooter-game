@@ -243,7 +243,7 @@ color = Color(0, 0, 0, 0.666667)
 [node name="ScoreLabel" type="Label" parent="LevelUi/PlayerUi"]
 layout_mode = 0
 offset_left = 8.0
-offset_top = -3.0
+offset_top = -7.0
 offset_right = 192.0
 offset_bottom = 52.0
 auto_translate = false

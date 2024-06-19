@@ -4,7 +4,7 @@
 	- [x] Player character who can shoot forward in a straight line
 		- [x] SFX
 		- [ ] Art - projectiles
-	- [ ] Player character dies on being touched
+	- [x] Player character dies on being touched
 		- [ ] SFX
 		- [ ] Art - explosion
 	- [x] Player character dies on being shot

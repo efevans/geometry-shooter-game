@@ -1,16 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2vmd6cg3aakl"]
+[gd_scene load_steps=12 format=3 uid="uid://b2vmd6cg3aakl"]
 
 [ext_resource type="PackedScene" uid="uid://kuc0ec6psiuo" path="res://scenes/components/shoot_forward_bullet_component/shoot_forward_bullet_component.tscn" id="1_nc5cs"]
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_t5k27"]
 [ext_resource type="Texture2D" uid="uid://cqqx0fnucs4sd" path="res://scenes/enemy/enemy.png" id="2_gtjdd"]
 [ext_resource type="AudioStream" uid="uid://oo3lce0q34yh" path="res://scenes/enemy/enemy_shoot.wav" id="4_bmcsn"]
-[ext_resource type="PackedScene" uid="uid://bcnttpc4vi14i" path="res://scenes/components/health_component/health_component.tscn" id="5_1lwou"]
-[ext_resource type="PackedScene" uid="uid://db02bok0g2fif" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="6_h35sp"]
-[ext_resource type="PackedScene" uid="uid://bfus2jct2amu6" path="res://scenes/components/death_component/death_component.tscn" id="7_4y6wr"]
-[ext_resource type="AudioStream" uid="uid://7a5uwohbgavl" path="res://scenes/enemy/enemy_explosion.wav" id="8_1g7oo"]
+[ext_resource type="PackedScene" uid="uid://db02bok0g2fif" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="5_0j32y"]
+[ext_resource type="PackedScene" uid="uid://bcnttpc4vi14i" path="res://scenes/components/health_component/health_component.tscn" id="6_ngct3"]
+[ext_resource type="PackedScene" uid="uid://bfus2jct2amu6" path="res://scenes/components/death_component/death_component.tscn" id="7_wyynw"]
+[ext_resource type="AudioStream" uid="uid://7a5uwohbgavl" path="res://scenes/enemy/enemy_explosion.wav" id="8_6pyii"]
+[ext_resource type="PackedScene" uid="uid://bj2gsm2yk3ykv" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="9_02wp5"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_syid1"]
-radius = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_tv0t3"]
+radius = 18.0278
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w8rop"]
+radius = 13.0384
 
 [node name="ShootBulletEnemy" type="Node2D"]
 script = ExtResource("1_t5k27")
@@ -23,15 +27,22 @@ parent_firer = NodePath("..")
 parent_distance_buffer = 8.0
 stream = ExtResource("4_bmcsn")
 
-[node name="HealthComponent" parent="." instance=ExtResource("5_1lwou")]
-
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_h35sp")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_0j32y")]
 collision_mask = 1
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-shape = SubResource("CircleShape2D_syid1")
+shape = SubResource("CircleShape2D_tv0t3")
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_4y6wr")]
+[node name="HealthComponent" parent="." instance=ExtResource("6_ngct3")]
+
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_wyynw")]
 health_component = NodePath("../HealthComponent")
-stream = ExtResource("8_1g7oo")
+stream = ExtResource("8_6pyii")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("9_02wp5")]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_w8rop")

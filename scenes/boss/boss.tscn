@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtsmorblhy4gb"]
+[gd_scene load_steps=14 format=3 uid="uid://dtsmorblhy4gb"]
 
 [ext_resource type="Texture2D" uid="uid://cco8uwx8qtau3" path="res://scenes/boss/geometry_boss.png" id="1_72ns0"]
 [ext_resource type="Script" path="res://scenes/boss/boss.gd" id="1_dwiyl"]
@@ -10,9 +10,13 @@
 [ext_resource type="AudioStream" uid="uid://oo3lce0q34yh" path="res://scenes/enemy/enemy_shoot.wav" id="8_0kvfe"]
 [ext_resource type="PackedScene" uid="uid://oqmy2dbyi8vq" path="res://scenes/components/shoot_bullet_at_player_component/shoot_bullet_at_player_component.tscn" id="8_firs8"]
 [ext_resource type="PackedScene" uid="uid://bpp6dx2vq7byg" path="res://scenes/bullet/big_bullet/big_bullet.tscn" id="10_s8dwt"]
+[ext_resource type="PackedScene" uid="uid://bj2gsm2yk3ykv" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="11_c6ywt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1crs"]
 radius = 31.0161
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5446q"]
+radius = 26.6833
 
 [node name="Boss" type="Node2D"]
 script = ExtResource("1_dwiyl")
@@ -76,3 +80,10 @@ shoot_timeout = 1.5
 bullet_scene = ExtResource("10_s8dwt")
 parent_firer = NodePath("../FrontLeftGun")
 stream = ExtResource("8_0kvfe")
+
+[node name="TouchHitbox" parent="." instance=ExtResource("11_c6ywt")]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchHitbox"]
+shape = SubResource("CircleShape2D_5446q")
