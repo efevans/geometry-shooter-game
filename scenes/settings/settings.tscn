@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg2tfdjbl1vd3"]
+[gd_scene load_steps=6 format=3 uid="uid://bg2tfdjbl1vd3"]
 
 [ext_resource type="PackedScene" uid="uid://d26x7beb3l6aq" path="res://scenes/ui/options_slider/options_slider.tscn" id="1_dlgjw"]
 [ext_resource type="Script" path="res://scenes/settings/settings.gd" id="1_g5kr7"]
+[ext_resource type="Texture2D" uid="uid://l3yo0n2r7a50" path="res://assets/images/angledgradiant.png" id="2_5s7d6"]
 [ext_resource type="AudioStream" uid="uid://do7wxdn21uvrx" path="res://scenes/main_menu/button_click.wav" id="3_yi7ue"]
 [ext_resource type="AudioStream" uid="uid://hp7nhscw7uff" path="res://scenes/player/player_shoot.wav" id="4_7lkjf"]
 
@@ -13,6 +14,15 @@ custom_minimum_size = Vector2(450, 800)
 layout_mode = 3
 anchors_preset = 0
 
+[node name="Background" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5s7d6")
+
 [node name="CenterContainer" type="CenterContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
@@ -21,57 +31,61 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/CenterContainer"]
+layout_mode = 2
+theme_type_variation = &"UiBgPanelContainer"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="VolumeSection" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+[node name="VolumeSection" type="VBoxContainer" parent="Control/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/VolumeSection"]
+[node name="Label" type="Label" parent="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Volume"
 
-[node name="MainVolume" parent="Control/CenterContainer/VBoxContainer/VolumeSection" instance=ExtResource("1_dlgjw")]
+[node name="MainVolume" parent="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection" instance=ExtResource("1_dlgjw")]
 unique_name_in_owner = true
 layout_mode = 2
 label_name = "Main"
 
-[node name="tlLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/VolumeSection/MainVolume"]
+[node name="tlLabel" type="Label" parent="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection/MainVolume"]
 visible = false
 layout_mode = 2
 text = "Main"
 
-[node name="SfxVolume" parent="Control/CenterContainer/VBoxContainer/VolumeSection" instance=ExtResource("1_dlgjw")]
+[node name="SfxVolume" parent="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection" instance=ExtResource("1_dlgjw")]
 unique_name_in_owner = true
 layout_mode = 2
 label_name = "SFX"
 
-[node name="tlLabel2" type="Label" parent="Control/CenterContainer/VBoxContainer/VolumeSection/SfxVolume"]
+[node name="tlLabel2" type="Label" parent="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection/SfxVolume"]
 visible = false
 layout_mode = 2
 text = "SFX"
 
-[node name="MusicVolume" parent="Control/CenterContainer/VBoxContainer/VolumeSection" instance=ExtResource("1_dlgjw")]
+[node name="MusicVolume" parent="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection" instance=ExtResource("1_dlgjw")]
 unique_name_in_owner = true
 layout_mode = 2
 label_name = "Music"
 
-[node name="tlLabel2" type="Label" parent="Control/CenterContainer/VBoxContainer/VolumeSection/MusicVolume"]
+[node name="tlLabel2" type="Label" parent="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection/MusicVolume"]
 visible = false
 layout_mode = 2
 text = "Music"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="LocaleLabel" type="Label" parent="Control/CenterContainer/VBoxContainer/VBoxContainer"]
+[node name="LocaleLabel" type="Label" parent="Control/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Locale"
 
-[node name="LocaleSelector" type="OptionButton" parent="Control/CenterContainer/VBoxContainer/VBoxContainer"]
+[node name="LocaleSelector" type="OptionButton" parent="Control/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 item_count = 2
@@ -80,7 +94,7 @@ popup/item_0/id = 0
 popup/item_1/text = "日本語"
 popup/item_1/id = 1
 
-[node name="BackButton" type="Button" parent="Control/CenterContainer/VBoxContainer"]
+[node name="BackButton" type="Button" parent="Control/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back to Main Menu"
 
@@ -98,11 +112,11 @@ wait_time = 0.5
 one_shot = true
 autostart = true
 
-[connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/VolumeSection/MainVolume" to="." method="_on_main_volume_value_change"]
-[connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/VolumeSection/MainVolume" to="." method="flush_settings_to_disk"]
-[connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/VolumeSection/SfxVolume" to="." method="_on_sfx_volume_value_change"]
-[connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/VolumeSection/SfxVolume" to="." method="flush_settings_to_disk"]
-[connection signal="ValueChange" from="Control/CenterContainer/VBoxContainer/VolumeSection/MusicVolume" to="." method="_on_music_volume_value_change"]
-[connection signal="ValueDoneChanging" from="Control/CenterContainer/VBoxContainer/VolumeSection/MusicVolume" to="." method="flush_settings_to_disk"]
-[connection signal="item_selected" from="Control/CenterContainer/VBoxContainer/VBoxContainer/LocaleSelector" to="." method="_on_locale_selector_item_selected"]
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="ValueChange" from="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection/MainVolume" to="." method="_on_main_volume_value_change"]
+[connection signal="ValueDoneChanging" from="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection/MainVolume" to="." method="flush_settings_to_disk"]
+[connection signal="ValueChange" from="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection/SfxVolume" to="." method="_on_sfx_volume_value_change"]
+[connection signal="ValueDoneChanging" from="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection/SfxVolume" to="." method="flush_settings_to_disk"]
+[connection signal="ValueChange" from="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection/MusicVolume" to="." method="_on_music_volume_value_change"]
+[connection signal="ValueDoneChanging" from="Control/CenterContainer/PanelContainer/VBoxContainer/VolumeSection/MusicVolume" to="." method="flush_settings_to_disk"]
+[connection signal="item_selected" from="Control/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/LocaleSelector" to="." method="_on_locale_selector_item_selected"]
+[connection signal="pressed" from="Control/CenterContainer/PanelContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

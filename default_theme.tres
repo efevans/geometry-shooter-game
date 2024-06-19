@@ -1,6 +1,18 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://85cbqkfni7xy"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://85cbqkfni7xy"]
 
 [ext_resource type="FontFile" uid="uid://by5x58w3uvul8" path="res://assets/font/DotGothic16/DotGothic16-Regular.ttf" id="1_4w6to"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xe3cf"]
+bg_color = Color(0.270588, 0.270588, 0.270588, 0.862745)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.894922, 0.894922, 0.894922, 1)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eorxo"]
 bg_color = Color(0.427493, 0.427493, 0.427493, 1)
@@ -58,6 +70,8 @@ corner_radius_bottom_left = 2
 
 [resource]
 default_font = ExtResource("1_4w6to")
+UiBgPanelContainer/base_type = &"PanelContainer"
+UiBgPanelContainer/styles/panel = SubResource("StyleBoxFlat_xe3cf")
 UiButton/base_type = &"Button"
 UiButton/font_sizes/font_size = 32
 UiButton/styles/focus = SubResource("StyleBoxFlat_eorxo")
