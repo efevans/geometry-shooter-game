@@ -52,3 +52,7 @@ func on_move_timer_timeout() -> void:
 
 func on_health_changed(curr: int, total: int) -> void:
 	health_changed.emit(curr, total)
+
+
+func _on_health_component_death() -> void:
+	GameEvents.emit_boss_died()

@@ -28,6 +28,10 @@ const HORIZONTAL_LEAN_ROTATIONAL_VELOCITY = 6.
 @onready var shield_hurtbox: Area2D = $ShieldHurtbox
 
 
+## Whether or not we should accept player input or if we shold control the player
+## character entirely via script/animations
+var can_control := true
+
 var is_dead := false
 var last_direction: Vector2 = Vector2.ZERO
 
@@ -36,8 +40,15 @@ var sprite_rotation_tween: Tween = null
 
 func _ready() -> void:
 	GameEvents.player_spawned.connect(on_player_spawn)
+	GameEvents.boss_died.connect(on_boss_died)
 	shield_hurtbox.set_deferred("monitoring", false)
 	shield.visible = false
+
+
+func on_boss_died() -> void:
+	$HurtboxComponent.set_deferred("monitoring", false)
+	animation_player.play("dash_away")
+	can_control = false
 
 
 func on_player_spawn() -> void:
@@ -50,6 +61,9 @@ func on_player_spawn() -> void:
 
 	animation_player.play("invulnerability")
 	await animation_player.animation_finished
+	# The player may have won while the invuln phase was happening
+	if not can_control:
+		return
 
 	$HurtboxComponent.set_deferred("monitoring", true)
 	# And don't forget to turn them off after!
@@ -81,7 +95,7 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
-	if is_dead:
+	if is_dead or not can_control:
 		direction = Vector2.ZERO
 
 	if direction:
@@ -95,7 +109,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if is_dead:
+	if is_dead or not can_control:
 		return
 
 	if event.is_action_pressed("player_shoot"):
@@ -106,7 +120,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func _on_firing_cooldown_timeout() -> void:
-	if is_dead:
+	if is_dead or not can_control:
 		return
 
 	if Input.is_action_pressed("player_shoot"):

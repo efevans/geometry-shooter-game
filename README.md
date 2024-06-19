@@ -48,7 +48,7 @@
 		- [ ] Spawns a boss at the end of the level
 	- [x] Game Over screen after player dies
 		- [ ] "You Lost" SFX
-	- [ ] Win screen after player wins
+	- [x] Win screen after player wins
 		- [ ] "You Won" SFX
 	- [ ] Transition for when boss spawns
 		- [ ] SFX

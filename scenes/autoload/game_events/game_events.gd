@@ -51,3 +51,11 @@ signal boss_spawned(boss: Node2D)
 
 func emit_boss_spawned(boss: Node2D) -> void:
 	boss_spawned.emit(boss)
+
+
+## The boss just died
+## This should kick off any processes around level-end
+signal boss_died()
+
+func emit_boss_died() -> void:
+	boss_died.emit()

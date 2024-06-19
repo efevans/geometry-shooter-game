@@ -4,6 +4,7 @@ extends Control
 func _ready() -> void:
 	GameEvents.player_needs_spawning.connect(on_player_needs_spawning)
 	GameEvents.game_over.connect(on_game_over)
+	GameEvents.boss_died.connect(on_level_end)
 
 
 func on_player_needs_spawning() -> void:
@@ -19,4 +20,12 @@ func on_game_over() -> void:
 
 
 func game_over_animation_done() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
+
+
+func on_level_end() -> void:
+	$AnimationPlayer.play("win")
+
+
+func on_level_end_animation_done() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

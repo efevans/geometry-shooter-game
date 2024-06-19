@@ -87,3 +87,5 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchHitbox"]
 shape = SubResource("CircleShape2D_5446q")
+
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]
