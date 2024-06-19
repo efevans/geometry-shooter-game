@@ -48,7 +48,6 @@ func on_boss_spawned(boss: Node2D) -> void:
 func on_boss_health_changed(curr: int, total: int) -> void:
 	boss_health_bar.value = float(curr) / total
 	if health_shake_tween != null and health_shake_tween.is_running():
-		print("tween running")
 		return
 
 	health_shake_tween = create_tween()
