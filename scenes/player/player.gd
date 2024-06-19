@@ -24,6 +24,9 @@ const HORIZONTAL_LEAN_ROTATIONAL_VELOCITY = 6.
 @onready var big_outer_explosion: GPUParticles2D = $BigOuterExplosion
 @onready var small_inner_explosion: GPUParticles2D = $SmallInnerExplosion
 
+@onready var shield: AnimatedSprite2D = %Shield
+@onready var shield_hurtbox: Area2D = $ShieldHurtbox
+
 
 var is_dead := false
 var last_direction: Vector2 = Vector2.ZERO
@@ -33,12 +36,25 @@ var sprite_rotation_tween: Tween = null
 
 func _ready() -> void:
 	GameEvents.player_spawned.connect(on_player_spawn)
+	shield_hurtbox.set_deferred("monitoring", false)
+	shield.visible = false
 
 
 func on_player_spawn() -> void:
 	is_dead = false
-	$HurtboxComponent.set_deferred("monitoring", true)
 	$Visuals.modulate = Color.WHITE
+
+	# Show our sheild and block bullets
+	shield_hurtbox.set_deferred("monitoring", true)
+	shield.visible = true
+
+	animation_player.play("invulnerability")
+	await animation_player.animation_finished
+
+	$HurtboxComponent.set_deferred("monitoring", true)
+	# And don't forget to turn them off after!
+	shield_hurtbox.set_deferred("monitoring", false)
+	shield.visible = false
 
 
 func _process(delta: float) -> void:
@@ -73,7 +89,7 @@ func _physics_process(delta: float) -> void:
 		velocity += direction * ACCELERATION
 		velocity.x = clampf(velocity.x, -MAX_VELOCITY, MAX_VELOCITY)
 		velocity.y = clampf(velocity.y, -MAX_VELOCITY, MAX_VELOCITY)
-	
+
 	move_and_slide()
 	last_direction = direction
 

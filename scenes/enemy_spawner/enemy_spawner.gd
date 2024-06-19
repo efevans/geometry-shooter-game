@@ -42,8 +42,8 @@ func spawn_move_forward_enemy_at_position(position: int) -> void:
 func spawn_shoot_forward_enemy_at_position(position: int) -> void:
 	var enemy_instance := shoot_bullet_enemy_scene.instantiate() as Node2D
 	add_enemy_to_position_path(enemy_instance, position)
-	
-	
+
+
 func spawn_boss() -> void:
 	var boss_instance := boss_scene.instantiate() as Node2D
 	add_enemy_to_enemy_layer(boss_instance)
@@ -76,6 +76,6 @@ func add_enemy_to_enemy_layer(enemy_instance: Node2D) -> void:
 
 func get_position_node(position: int) -> Node2D:
 	return positions[position - 1]
-	
+
 func finish_spawning() -> void:
 	end_spawn.emit()
