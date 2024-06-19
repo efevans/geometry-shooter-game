@@ -3,6 +3,10 @@
 [ext_resource type="FontFile" uid="uid://by5x58w3uvul8" path="res://assets/font/DotGothic16/DotGothic16-Regular.ttf" id="1_4w6to"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xe3cf"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
 bg_color = Color(0.270588, 0.270588, 0.270588, 0.862745)
 border_width_left = 4
 border_width_top = 4
