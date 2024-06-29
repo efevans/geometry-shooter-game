@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://44vt8lvcjts2" path="res://scenes/enemy/enemy2.png" id="1_ejk4e"]
 [ext_resource type="PackedScene" uid="uid://oqmy2dbyi8vq" path="res://scenes/components/shoot_bullet_at_player_component/shoot_bullet_at_player_component.tscn" id="2_nkjls"]
-[ext_resource type="AudioStream" uid="uid://oo3lce0q34yh" path="res://scenes/enemy/enemy_shoot.wav" id="3_jwnlt"]
+[ext_resource type="AudioStream" uid="uid://chvmj0dnflmtu" path="res://scenes/enemy/enemy_shoot_2.wav" id="3_vjeec"]
 [ext_resource type="PackedScene" uid="uid://bcnttpc4vi14i" path="res://scenes/components/health_component/health_component.tscn" id="4_8wbrj"]
 [ext_resource type="PackedScene" uid="uid://db02bok0g2fif" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="5_y2qjh"]
 [ext_resource type="PackedScene" uid="uid://bj2gsm2yk3ykv" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="6_gbafq"]
@@ -61,7 +61,7 @@ frame_progress = 0.298766
 [node name="ShootBulletAtPlayerComponent" parent="." node_paths=PackedStringArray("parent_firer") instance=ExtResource("2_nkjls")]
 parent_firer = NodePath("..")
 parent_distance_buffer = 12.0
-stream = ExtResource("3_jwnlt")
+stream = ExtResource("3_vjeec")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_8wbrj")]
 

@@ -15,7 +15,7 @@
 		- [x] Art - body
 	- [x] Enemy type that dies on getting shot
 		- [x] SFX
-		- [ ] Art - explosion
+		- [x] Art - explosion
 	- [x] Enemy type that shoots straight forward
 		- [x] SFX
 		- [x] Art - projectiles
@@ -28,13 +28,13 @@
 
 - Boss
 	- [x] Boss that takes a certain number of hits before dying
-		- [ ] SFX - getting hit
+		- [x] SFX - getting hit
 		- [x] Art
 	- [x] Shoots straights forward
 		- [x] SFX
 		- [x] Art
 	- [x] Shoots towards the player
-		- [ ] SFX
+		- [x] SFX
 		- [x] Art
 	- [x] Moves back and forth
 	- [x] HP bar to show remaining HP
