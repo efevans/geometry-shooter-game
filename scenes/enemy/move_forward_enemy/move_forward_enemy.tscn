@@ -40,6 +40,7 @@ shape = SubResource("CircleShape2D_sqh2u")
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_x1ttk")]
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_7dueg")]
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_7dueg")]
 health_component = NodePath("../HealthComponent")
 stream = ExtResource("8_eocm0")
+sprite = NodePath("../Sprite2D")

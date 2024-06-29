@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtsmorblhy4gb"]
+[gd_scene load_steps=16 format=3 uid="uid://dtsmorblhy4gb"]
 
 [ext_resource type="Texture2D" uid="uid://cco8uwx8qtau3" path="res://scenes/boss/geometry_boss.png" id="1_72ns0"]
 [ext_resource type="Script" path="res://scenes/boss/boss.gd" id="1_dwiyl"]
@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://db02bok0g2fif" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="3_1bot2"]
 [ext_resource type="PackedScene" uid="uid://bfus2jct2amu6" path="res://scenes/components/death_component/death_component.tscn" id="4_dowrg"]
 [ext_resource type="AudioStream" uid="uid://7a5uwohbgavl" path="res://scenes/enemy/enemy_explosion.wav" id="5_6nlgo"]
+[ext_resource type="AudioStream" uid="uid://umy3ejwxh8y0" path="res://scenes/boss/boss_hit.wav" id="5_t1v1p"]
 [ext_resource type="PackedScene" uid="uid://kuc0ec6psiuo" path="res://scenes/components/shoot_forward_bullet_component/shoot_forward_bullet_component.tscn" id="7_mumv5"]
 [ext_resource type="AudioStream" uid="uid://oo3lce0q34yh" path="res://scenes/enemy/enemy_shoot.wav" id="8_0kvfe"]
 [ext_resource type="PackedScene" uid="uid://oqmy2dbyi8vq" path="res://scenes/components/shoot_bullet_at_player_component/shoot_bullet_at_player_component.tscn" id="8_firs8"]
 [ext_resource type="PackedScene" uid="uid://bpp6dx2vq7byg" path="res://scenes/bullet/big_bullet/big_bullet.tscn" id="10_s8dwt"]
 [ext_resource type="PackedScene" uid="uid://bj2gsm2yk3ykv" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="11_c6ywt"]
+[ext_resource type="AudioStream" uid="uid://chvmj0dnflmtu" path="res://scenes/enemy/enemy_shoot_2.wav" id="11_gijlk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1crs"]
 radius = 31.0161
@@ -32,13 +34,15 @@ max_health = 50
 position = Vector2(0, 2)
 collision_mask = 1
 health_component = NodePath("../HealthComponent")
+stream = ExtResource("5_t1v1p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CircleShape2D_d1crs")
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_dowrg")]
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_dowrg")]
 health_component = NodePath("../HealthComponent")
 stream = ExtResource("5_6nlgo")
+sprite = NodePath("../Sprite2D")
 
 [node name="MoveTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -70,7 +74,7 @@ position = Vector2(20, 29)
 shoot_timeout = 1.5
 bullet_scene = ExtResource("10_s8dwt")
 parent_firer = NodePath("../FrontRightGun")
-stream = ExtResource("8_0kvfe")
+stream = ExtResource("11_gijlk")
 
 [node name="FrontLeftGun" type="Marker2D" parent="Shooting"]
 position = Vector2(-20, 29)
@@ -79,7 +83,7 @@ position = Vector2(-20, 29)
 shoot_timeout = 1.5
 bullet_scene = ExtResource("10_s8dwt")
 parent_firer = NodePath("../FrontLeftGun")
-stream = ExtResource("8_0kvfe")
+stream = ExtResource("11_gijlk")
 
 [node name="TouchHitbox" parent="." instance=ExtResource("11_c6ywt")]
 collision_layer = 2

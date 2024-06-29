@@ -56,6 +56,7 @@ radius = 13.0384
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ryrex")
 autoplay = "default"
+frame_progress = 0.298766
 
 [node name="ShootBulletAtPlayerComponent" parent="." node_paths=PackedStringArray("parent_firer") instance=ExtResource("2_nkjls")]
 parent_firer = NodePath("..")

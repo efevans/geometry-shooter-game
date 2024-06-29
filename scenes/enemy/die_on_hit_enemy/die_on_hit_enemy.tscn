@@ -22,9 +22,10 @@ texture = ExtResource("2_mo17t")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_rp57s")]
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_v0ali")]
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_v0ali")]
 health_component = NodePath("../HealthComponent")
 stream = ExtResource("5_act6w")
+sprite = NodePath("../Sprite2D")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_bynhw")]
 collision_mask = 1

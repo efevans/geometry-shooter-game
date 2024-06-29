@@ -1,10 +1,79 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfus2jct2amu6"]
+[gd_scene load_steps=5 format=3 uid="uid://bfus2jct2amu6"]
 
 [ext_resource type="Script" path="res://scenes/components/death_component/death_component.gd" id="1_a633d"]
 
+[sub_resource type="Animation" id="Animation_ev452"]
+resource_name = "death"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeadSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1.27456, 2.21914),
+"update": 0,
+"values": [Color(0.947108, 0.32781, 0.268223, 1), Color(0.999041, 0.724628, 0.65524, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeadSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(0.133972, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_a0jkp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeadSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeadSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vv6pg"]
+_data = {
+"RESET": SubResource("Animation_a0jkp"),
+"death": SubResource("Animation_ev452")
+}
+
 [node name="DeathComponent" type="Node2D"]
+visible = false
 script = ExtResource("1_a633d")
+
+[node name="DeathAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vv6pg")
+}
 
 [node name="DeathSoundPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -8.0
 bus = &"SFX"
+
+[node name="DeadSprite" type="Sprite2D" parent="."]

@@ -14,3 +14,7 @@ func play_siren() -> void:
 	MusicManager.play_song(MusicManager.SONG.BOSS_INTRO)
 	
 
+func play_boss_theme() -> void:
+	MusicManager.play_song(MusicManager.SONG.BOSS1)
+	
+

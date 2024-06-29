@@ -36,9 +36,10 @@ shape = SubResource("CircleShape2D_tv0t3")
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_ngct3")]
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_wyynw")]
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_wyynw")]
 health_component = NodePath("../HealthComponent")
 stream = ExtResource("8_6pyii")
+sprite = NodePath("../Sprite2D")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("9_02wp5")]
 collision_layer = 2
