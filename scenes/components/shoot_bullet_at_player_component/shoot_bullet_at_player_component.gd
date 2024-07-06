@@ -11,12 +11,13 @@ extends Node
 
 
 func _ready() -> void:
-	shoot_timer.start(shoot_timeout)
+	shoot_timer.start(randf_range(0, shoot_timeout))
 	shoot_timer.timeout.connect(on_shoot_timeout)
 	$ShootBulletPlayer.stream = stream
 
 
 func on_shoot_timeout() -> void:
+	shoot_timer.start(shoot_timeout)
 	var player := get_tree().get_first_node_in_group("player") as Player
 	# Don't shoot at dead players
 	if !player or player.is_dead:

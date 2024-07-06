@@ -9,6 +9,7 @@ bullet_scene = ExtResource("2_2fnn5")
 
 [node name="ShootTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+one_shot = true
 
 [node name="ShootBulletPlayer" type="AudioStreamPlayer2D" parent="."]
 volume_db = -4.0

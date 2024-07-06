@@ -24,7 +24,7 @@ signal end_spawn
 var basic_enemy_scene: PackedScene = preload("res://scenes/enemy/enemy.tscn")
 var move_forward_enemy_scene: PackedScene = preload("res://scenes/enemy/move_forward_enemy/move_forward_enemy.tscn")
 var shoot_bullet_enemy_scene: PackedScene = preload("res://scenes/enemy/shoot_bullet_enemy/shoot_bullet_enemy.tscn")
-
+var shoot_bullet_towards_player_scene: PackedScene = preload("res://scenes/enemy/shoot_bullet_at_player_enemy/shoot_bullet_at_player_enemy.tscn")
 
 var boss_scene: PackedScene = preload("res://scenes/boss/boss.tscn")
 
@@ -41,6 +41,11 @@ func spawn_move_forward_enemy_at_position(position: int) -> void:
 
 func spawn_shoot_forward_enemy_at_position(position: int) -> void:
 	var enemy_instance := shoot_bullet_enemy_scene.instantiate() as Node2D
+	add_enemy_to_position_path(enemy_instance, position)
+
+
+func spawn_shoot_toward_player_enemy_at_position(position: int) -> void:
+	var enemy_instance := shoot_bullet_towards_player_scene.instantiate() as Node2D
 	add_enemy_to_position_path(enemy_instance, position)
 
 

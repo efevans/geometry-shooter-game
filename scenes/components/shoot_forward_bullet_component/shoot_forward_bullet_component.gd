@@ -16,13 +16,14 @@ class_name ShootForwardBulletComponent
 
 func _ready() -> void:
 	if shoot_timeout > 0:
-		shoot_timer.start(shoot_timeout)
 		shoot_timer.timeout.connect(on_shoot_timeout)
+		shoot_timer.start(randf_range(0, shoot_timeout))
 	$ShootBulletPlayer.stream = stream
 
 
 func on_shoot_timeout() -> void:
 	fire_bullet()
+	shoot_timer.start(shoot_timeout)
 
 
 func fire_bullet() -> void:

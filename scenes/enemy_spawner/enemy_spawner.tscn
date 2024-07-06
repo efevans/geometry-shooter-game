@@ -6,7 +6,8 @@
 
 [sub_resource type="Animation" id="Animation_2oiku"]
 resource_name = "level_1"
-length = 30.0
+length = 95.0
+step = 0.5
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,8 +15,8 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2, 4, 9, 9.5, 10, 10.5, 20),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(2, 4, 9, 9.5, 10, 10.5, 15, 20, 25, 25.5, 26, 26.5, 40, 41, 45, 46, 47, 48, 49, 50, 55, 56, 57, 58, 59, 60, 65, 65.5, 66, 66.5, 67, 67.5, 72, 73, 74, 75, 90),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [1],
 "method": &"spawn_basic_enemy_at_position"
@@ -34,6 +35,96 @@ tracks/0/keys = {
 }, {
 "args": [4],
 "method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [11],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
 }, {
 "args": [],
 "method": &"finish_spawning"
@@ -46,8 +137,8 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.5, 9, 9.5, 10, 10.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(2.5, 9, 9.5, 10, 10.5, 15, 20, 25, 25.5, 26, 26.5, 45, 46, 47, 48, 49, 50, 55, 56, 57, 58, 59, 60, 72, 73, 74, 75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [1],
 "method": &"spawn_basic_enemy_at_position"
@@ -63,6 +154,72 @@ tracks/1/keys = {
 }, {
 "args": [12],
 "method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [11],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [11],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [11],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [11],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [11],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [11],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [11],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [11],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [11],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
+}, {
+"args": [11],
+"method": &"spawn_shoot_toward_player_enemy_at_position"
 }]
 }
 tracks/2/type = "method"
@@ -72,14 +229,53 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1, 3, 29, 30, 31, 32, 33, 34, 35, 65, 65.5, 66, 66.5, 67, 67.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [5],
 "method": &"spawn_move_forward_enemy_at_position"
 }, {
 "args": [1],
 "method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [7],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [7],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [7],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [7],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [7],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [7],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [7],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_shoot_forward_enemy_at_position"
 }]
 }
 tracks/3/type = "method"
@@ -89,14 +285,47 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1, 3.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1, 3.5, 29, 31, 33, 35, 55.5, 60.5, 72, 73, 74, 75, 76),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [11],
 "method": &"spawn_move_forward_enemy_at_position"
 }, {
 "args": [1],
 "method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [6],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [6],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [6],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [6],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [5],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [4],
+"method": &"spawn_shoot_forward_enemy_at_position"
 }]
 }
 tracks/4/type = "method"
@@ -106,11 +335,231 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(22),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(29, 31, 33, 35, 55.5, 60.5, 65, 66, 67, 68, 72, 73, 74, 75, 76, 95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
+"args": [10],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [10],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [10],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [10],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [6],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [6],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [7],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [7],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [7],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [7],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
+"args": [12],
+"method": &"spawn_shoot_forward_enemy_at_position"
+}, {
 "args": [],
 "method": &"spawn_boss"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(55.5, 60.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [7],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [7],
+"method": &"spawn_move_forward_enemy_at_position"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(55.5, 60.5, 65, 66, 67, 68, 72, 72.5, 73, 73.5, 74, 74.5, 75, 75.5, 76, 76.5, 77, 77.5, 78),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [8],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [8],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [9],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [9],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [9],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [9],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [1],
+"method": &"spawn_basic_enemy_at_position"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(55.5, 60.5, 72, 72.5, 73, 73.5, 74, 74.5, 75, 75.5, 76, 76.5, 77, 77.5, 78),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [9],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [9],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}, {
+"args": [15],
+"method": &"spawn_basic_enemy_at_position"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(55.5, 60.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [10],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [10],
+"method": &"spawn_move_forward_enemy_at_position"
+}]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(55.5, 60.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [11],
+"method": &"spawn_move_forward_enemy_at_position"
+}, {
+"args": [11],
+"method": &"spawn_move_forward_enemy_at_position"
 }]
 }
 

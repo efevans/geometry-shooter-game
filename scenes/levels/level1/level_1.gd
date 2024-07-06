@@ -16,7 +16,7 @@ func start_boss_fight() -> void:
 
 func on_boss_died() -> void:
 	MusicManager.play_song(MusicManager.SONG.VICTORY)
-	
+
 
 func on_player_died() -> void:
 	MusicManager.play_song(MusicManager.SONG.DEFEAT)

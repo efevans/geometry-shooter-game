@@ -16,21 +16,20 @@ func _ready() -> void:
 func on_death() -> void:
 	if owner == null || not owner is Node2D:
 		return
-		
+
 	if sprite:
 		$DeadSprite.texture = sprite.texture
 	elif animated_sprite:
-		var frame: int = animated_sprite.get_frame()
 		var animation: String = animated_sprite.animation
 		var spriteFrames: SpriteFrames = animated_sprite.get_sprite_frames()
 		var currentTexture: Texture2D = spriteFrames.get_frame_texture(animation, 0)
 		$DeadSprite.texture = currentTexture
-	
+
 	var death_position: Vector2 = owner.global_position
 	var death_manager: Node = get_tree().get_first_node_in_group("death_manager_layer")
 	get_parent().remove_child(self)
 	death_manager.add_child(self)
-		
+
 	visible = true
 	global_position = death_position
 	$DeathAnimation.play("death")

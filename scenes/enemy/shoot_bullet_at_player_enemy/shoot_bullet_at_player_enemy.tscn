@@ -79,6 +79,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_j5lnr")
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_h47ui")]
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "animated_sprite") instance=ExtResource("7_h47ui")]
 health_component = NodePath("../HealthComponent")
 stream = ExtResource("8_xw478")
+animated_sprite = NodePath("../AnimatedSprite2D")

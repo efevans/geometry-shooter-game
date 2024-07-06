@@ -55,4 +55,9 @@ func on_health_changed(curr: int, total: int) -> void:
 
 
 func _on_health_component_death() -> void:
+	$AnimationPlayer.play("death")
+	$Shooting.queue_free()
+	%MoveTimer.stop()
+	$TouchHitbox.set_deferred("monitorable", false)
+	$HurtboxComponent.set_deferred("monitoring", false)
 	GameEvents.emit_boss_died()

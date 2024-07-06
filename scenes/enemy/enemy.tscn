@@ -1,50 +1,43 @@
-[gd_scene load_steps=16 format=3 uid="uid://l38eatwjev7n"]
+[gd_scene load_steps=18 format=3 uid="uid://l38eatwjev7n"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_4lrlx"]
-[ext_resource type="Texture2D" uid="uid://m58arbaj1g4u" path="res://scenes/enemy/enemy1.png" id="2_74ftn"]
+[ext_resource type="Texture2D" uid="uid://cbuuq3bgjfh1x" path="res://scenes/enemy/enemy3.png" id="2_c4luf"]
 [ext_resource type="PackedScene" uid="uid://bcnttpc4vi14i" path="res://scenes/components/health_component/health_component.tscn" id="3_omw1a"]
 [ext_resource type="PackedScene" uid="uid://db02bok0g2fif" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="4_qvkwu"]
 [ext_resource type="PackedScene" uid="uid://bfus2jct2amu6" path="res://scenes/components/death_component/death_component.tscn" id="5_x6wiw"]
 [ext_resource type="AudioStream" uid="uid://7a5uwohbgavl" path="res://scenes/enemy/enemy_explosion.wav" id="6_lwuns"]
 [ext_resource type="PackedScene" uid="uid://bj2gsm2yk3ykv" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="7_mg17g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ta4uu"]
-atlas = ExtResource("2_74ftn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_75a6v"]
+atlas = ExtResource("2_c4luf")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pql12"]
-atlas = ExtResource("2_74ftn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_soyj5"]
+atlas = ExtResource("2_c4luf")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f072u"]
-atlas = ExtResource("2_74ftn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_an3w1"]
+atlas = ExtResource("2_c4luf")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hsh6x"]
-atlas = ExtResource("2_74ftn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_whieq"]
+atlas = ExtResource("2_c4luf")
 region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hj5sb"]
-atlas = ExtResource("2_74ftn")
-region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8u2nu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ta4uu")
+"texture": SubResource("AtlasTexture_75a6v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pql12")
+"texture": SubResource("AtlasTexture_soyj5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f072u")
+"texture": SubResource("AtlasTexture_an3w1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hsh6x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hj5sb")
+"texture": SubResource("AtlasTexture_whieq")
 }],
 "loop": true,
 "name": &"default",
@@ -56,6 +49,43 @@ radius = 20.025
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0rcn0"]
 radius = 15.0
+
+[sub_resource type="Animation" id="Animation_72ani"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ca82t"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.628319, 1.25664, 1.88496, 2.51327, 3.14159, 3.76991, 4.39823, 5.02655, 5.65487, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlkr0"]
+_data = {
+"RESET": SubResource("Animation_72ani"),
+"default": SubResource("Animation_ca82t")
+}
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_4lrlx")
@@ -84,3 +114,9 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_0rcn0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nlkr0")
+}
+autoplay = "default"
