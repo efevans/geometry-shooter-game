@@ -26,6 +26,7 @@ func _ready() -> void:
 		preload("res://scenes/levels/level1/level_1_defeat.mp3")
 	])
 	timer.timeout.connect(on_delay_timeout)
+	self.finished.connect(on_finished_playing)
 
 
 func play_song(song: SONG) -> void:
@@ -48,8 +49,10 @@ func play_song_with_delay(song: SONG, delay:float) -> void:
 	timer.start()
 
 
-
 func on_delay_timeout() -> void:
 	play_song(queued_song)
+	
+func on_finished_playing() -> void:
+	play()
 
 
