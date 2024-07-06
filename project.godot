@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="geometry-shooter-game"
+config/description="Shoot the geometry shapes!"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
+config/windows_native_icon="res://favicon.ico"
 
 [autoload]
 
@@ -43,6 +45,7 @@ movie_writer/movie_file="res://"
 
 folder_colors={
 "res://assets/": "orange",
+"res://publish/": "gray",
 "res://scenes/": "blue",
 "res://scenes/autoload/": "green",
 "res://scenes/components/": "green",
